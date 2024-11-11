@@ -49,6 +49,7 @@ func _process(delta):
 			dog.race_ended = true  # Marcar que el perro ha terminado la carrera
 			dogs_finished += 1  # Incrementar el contador de perros que han llegado
 			race_results.append(dog)  # Agregar el perro a los resultados
+			dog.stop_race()  # Detener al perro en cuanto cruce la meta
 
 	# Si todos los perros han terminado y la carrera aún no ha sido detenida
 	if dogs_finished == dogs.size() and not race_ended:

@@ -11,5 +11,5 @@ acceleration_rate = 250.0
 fluctuation_rate = 0.2
 change_delay = 2.0
 fluctuation_burst_chance = 0.001
-fluctuation_burst_duration = 19.0
-burst_impulse = 2.5
+fluctuation_burst_duration = 25.0
+burst_impulse = 2.0
