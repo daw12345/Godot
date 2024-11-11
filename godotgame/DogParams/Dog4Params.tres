@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DogParameters" load_steps=2 format=3 uid="uid://bh2e3qivyxlmy"]
+
+[ext_resource type="Script" path="res://scripts/DogParameters.gd" id="1_7r6rc"]
+
+[resource]
+script = ExtResource("1_7r6rc")
+base_speed = 100.0
+max_speed = 1400.0
+min_speed = 300.0
+acceleration_rate = 600.0
+fluctuation_rate = 0.5
+change_delay = 3.0
+fluctuation_burst_chance = 0.001
+fluctuation_burst_duration = 4.0
+burst_impulse = 1.0

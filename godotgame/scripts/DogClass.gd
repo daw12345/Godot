@@ -1,118 +1,133 @@
 extends AnimatedSprite2D
 
-# Parámetros por perro
-class DogParameters:
-	var base_speed : float
-	var max_speed : float
-	var min_speed : float
-	var acceleration_rate : float
-	var fluctuation_rate : float
-	var change_delay : float
-	var fluctuation_burst_chance : float
-	var fluctuation_burst_duration : float
+@export var dog_parameters : Resource
 
 # Variables del perro
-var dog_params : DogParameters
-var current_speed : float = 0.0  # Velocidad actual
-var top_speed : float = 0.0  # Velocidad máxima fluctuante
-var change_timer : float = 0.0  # Temporizador para cambios de velocidad
-var fluctuation_timer : float = 0.0  # Temporizador para fluctuaciones normales
-var burst_timer : float = 0.0  # Temporizador para super acelerones
-var is_bursting : bool = false  # Indica si está en super acelerón o parada
-var idle_timer : float = 3.0  # Tiempo en "idle" antes de empezar a moverse
-var race_started : bool = false  # Indica si la carrera ha comenzado
+var dog_params : DogParameters = null
+var current_speed : float = 0.0
+var top_speed : float = 0.0
+var target_speed : float = 0.0
+var race_started : bool = false
+var is_bursting : bool = false
+var race_ended : bool = false
+var is_first_place : bool = false
+var slow_factor : float = 0.5
+var burst_used : bool = false
+var burst_duration : float = 2.0
+var burst_time_left : float = 0.0
+var stop_time_left : float = 0.0  # Duración de la parada
 
 # Función para asignar parámetros al perro
 func set_dog_parameters(params : DogParameters):
 	dog_params = params
-	top_speed = dog_params.max_speed  # Establecer velocidad máxima
+	top_speed = dog_params.max_speed * slow_factor
+	current_speed = dog_params.base_speed * slow_factor
+	target_speed = current_speed
 
+# Función que se ejecuta cuando la escena está lista
 func _ready():
-	# Inicializar el estado del perro
-	play("idle")  # Animación "idle" inicial
-
-	# Establecer parámetros por defecto para el perro
-	var params = DogParameters.new()
-	params.base_speed = 50.0
-	params.max_speed = 1700.0
-	params.min_speed = 300.0
-	params.acceleration_rate = 500.0
-	params.fluctuation_rate = 0.1
-	params.change_delay = 2.0
-	params.fluctuation_burst_chance = 0.1
-	params.fluctuation_burst_duration = 8.0
+	if dog_parameters == null:
+		print("Error: No se ha asignado DogParameters al perro.")
+		return
 	
-	set_dog_parameters(params)  # Asignar parámetros al perro
+	set_dog_parameters(dog_parameters)
+	play("idle")
+	print(self.name, " ha sido inicializado con parámetros.")
 
 # Función para iniciar la carrera
 func start_race():
-	race_started = true  # La carrera comienza
-	idle_timer = 0  # Empezar a moverse inmediatamente
+	race_started = true
 	print(self.name, " está comenzando la carrera!")
 
-# **Función que detiene la carrera**
+# Función para detener la carrera
 func stop_race():
-	race_started = false  # La carrera se detiene
-	current_speed = 0  # Detener la velocidad
-	play("idle")  # Cambiar a animación "idle"
+	race_started = false
+	current_speed = 0
+	target_speed = 0
+
+	if is_first_place:
+		print(self.name, " ha terminado la carrera en primer lugar y se pone en idle.")
+		play("idle")
+	else:
+		print(self.name, " ha terminado la carrera y se pone en lazy.")
+		play("lazy")
+		current_speed *= 0.5
+	
 	print(self.name, " ha detenido la carrera.")
 
 # Función para actualizar la velocidad de la animación según la velocidad del perro
 func update_animation_speed():
 	var speed_scale_target = (current_speed / dog_params.max_speed) * 2.5 + 0.5
-	speed_scale = lerp(speed_scale, speed_scale_target, 0.1)  # Suavizado en la animación
+	speed_scale = lerp(speed_scale, speed_scale_target, 0.1)
 
+# Lógica principal de la carrera y fluctuaciones
 func _process(delta):
-	# Si la carrera no ha comenzado, no hacer nada
 	if not race_started:
 		return
 
-	# 1. Fluctuar la velocidad máxima (top speed)
-	change_timer += delta
-	if change_timer >= dog_params.change_delay:
-		# Cambiar aleatoriamente la top speed
-		if not is_bursting:
-			top_speed = lerp(dog_params.min_speed, dog_params.max_speed, randf())
-		change_timer = 0.0  # Resetear temporizador para la siguiente fluctuación
-
-	# 2. Comprobar si hay fluctuación brusca (super acelerón o parada)
-	if randf() < dog_params.fluctuation_burst_chance and not is_bursting:
-		if randf() < 0.5:
-			# Super acelerón: Aumentamos la velocidad drásticamente
-			top_speed = lerp(dog_params.max_speed / 2, dog_params.max_speed * 2, randf())
-			print("¡Súper Acelerón! Nueva top speed: ", top_speed)
-		else:
-			# Parada: Reducimos la velocidad a casi cero
-			top_speed = 0
-			print("¡Parada repentina! Top speed es 0")
-		burst_timer = dog_params.fluctuation_burst_duration
-		is_bursting = true
-
-	# 3. Mantener el super acelerón o la parada
-	if is_bursting:
-		burst_timer -= delta
-		if burst_timer <= 0:
+	# Verificar si el burst está activo
+	if burst_time_left > 0:
+		burst_time_left -= delta
+		current_speed = lerp(current_speed, top_speed, 0.05)
+		if burst_time_left <= 0:
 			is_bursting = false
-			top_speed = lerp(dog_params.min_speed, dog_params.max_speed, randf())  # Reiniciar top speed
+			burst_used = true  # Marcar que el burst ya fue utilizado
+	elif stop_time_left > 0:
+		# Si la parada está activa
+		stop_time_left -= delta
+		current_speed = 0  # Mantener la velocidad en 0 durante la parada
+		if stop_time_left <= 0:
+			top_speed = lerp(dog_params.min_speed, dog_params.max_speed, randf()) * slow_factor
+			print(self.name, ": La parada ha terminado, volviendo a velocidad normal")
+	else:
+		# Si no hay burst ni parada, posibilidad de activar burst o parada
+		if not burst_used and randf() < dog_params.fluctuation_burst_chance * 0.5:
+			if randf() < 0.3:
+				# Activar el burst usando el impulso personalizado
+				top_speed = dog_params.max_speed * dog_params.burst_impulse * slow_factor
+				burst_time_left = burst_duration
+				is_bursting = true
+				print(self.name, ": ¡Súper Acelerón Gradual con Impulso Personalizado! Nueva top speed: ", top_speed)
+			else:
+				# Activar la parada con duración igual al burst
+				top_speed = 0
+				stop_time_left = burst_duration
+				print(self.name, ": ¡Parada repentina! Duración de parada: ", stop_time_left)
 
-	# 4. Acelerar o desacelerar hacia la top speed
-	if current_speed < top_speed:
-		current_speed += dog_params.acceleration_rate * delta
-		if current_speed > top_speed:
-			current_speed = top_speed
-	elif current_speed > top_speed:
-		current_speed -= dog_params.acceleration_rate * delta
-		if current_speed < top_speed:
-			current_speed = top_speed
+		# Fluctuar la velocidad máxima solo si no hay burst ni parada
+		if not is_bursting and stop_time_left <= 0 and randf() < 0.05:
+			top_speed = lerp(dog_params.min_speed, dog_params.max_speed, randf()) * slow_factor
 
-	# 5. Actualizar la animación basada en la velocidad
+	# Suavizar la aceleración hacia el top_speed si no estamos en burst ni parada
+	if not is_bursting and stop_time_left <= 0:
+		target_speed = lerp(target_speed, top_speed, 0.1)
+		current_speed = target_speed
+
+	# Deceleración cuando el perro ha llegado a la meta
+	if race_ended:
+		if current_speed > 0:
+			current_speed = lerp(current_speed, 0.0, 0.05)
+			if current_speed <= 0.05:
+				current_speed = 0.0
+
+	# Actualizar la animación basada en la velocidad
 	if current_speed > dog_params.base_speed and animation != "run":
-		play("run")  # Cambiar a "run" si el perro se mueve
-	elif current_speed <= dog_params.base_speed and animation != "lazy":
-		play("lazy")  # Cambiar a "lazy" si está detenido
+		play("run")
+	elif current_speed <= dog_params.base_speed and animation != "lazy" and not is_first_place:
+		play("lazy")
+	elif current_speed <= dog_params.base_speed and animation != "idle" and is_first_place:
+		play("idle")
 
-	# 6. Mover al perro basado en la velocidad
+	# Mover al perro basado en la velocidad
 	position.x += current_speed * delta
 
-	# 7. Actualizar la velocidad de la animación
+	# Actualizar la velocidad de la animación
 	update_animation_speed()
+
+# Función para marcar al perro como el primero en llegar
+func mark_as_first_place():
+	if not is_first_place:
+		is_first_place = true
+		race_ended = true
+		print(self.name, " ha llegado en primer lugar!")
+		play("idle")

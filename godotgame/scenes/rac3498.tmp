@@ -654,9 +654,6 @@ animations = [{
 [node name="Race" type="Node2D"]
 script = ExtResource("1_oct4k")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("6_jss50")
-
 [node name="Dog1" parent="." groups=["dogs"] instance=ExtResource("1_y456d")]
 position = Vector2(-456, -271)
 sprite_frames = SubResource("SpriteFrames_16v84")
@@ -664,19 +661,22 @@ animation = &"lazy"
 script = ExtResource("5_fbxqh")
 dog_parameters = ExtResource("7_an78a")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("6_jss50")
+
 [node name="Dog2" parent="." instance=ExtResource("8_cbpda")]
 position = Vector2(-454, -198)
 dog_parameters = ExtResource("10_31f1r")
 
 [node name="Dog3" type="AnimatedSprite2D" parent="." groups=["dogs"]]
-position = Vector2(-438, -113)
+position = Vector2(-446, -49)
 sprite_frames = SubResource("SpriteFrames_abiew")
 animation = &"run"
 script = ExtResource("5_fbxqh")
 dog_parameters = ExtResource("14_ape4j")
 
 [node name="Dog4" type="AnimatedSprite2D" parent="." groups=["dogs"]]
-position = Vector2(-439, -37)
+position = Vector2(-452, -118)
 sprite_frames = SubResource("SpriteFrames_k0pla")
 animation = &"run"
 frame_progress = 0.714545
