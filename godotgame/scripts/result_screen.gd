@@ -1,17 +1,23 @@
-extends Node
+extends Node2D
 
-# Muestra los resultados cuando se carga la escena
+@onready var result_label = $result_label  # Asegúrate de que 'result_label' es un Label o RichTextLabel
+
 func _ready():
-	var result_text = "Resultado de la carrera:\n"
-	result_text += "Ganaste la apuesta!" if GameData.won_bet else "Perdiste la apuesta."
-	result_text += "\nSaldo actual: $" + str(GameData.balance)
-	
-	# Verificar si ResultLabel existe antes de intentar asignar el texto
-	if $ResultLabel != null:
-		$ResultLabel.text = result_text
-	else:
-		print("Error: ResultLabel no encontrado en la escena.")
+	var result_text = "Resultado de la carrera: "
 
-# Función para regresar al menú de apuestas
-func return_to_bet_menu():
-	get_tree().change_scene_to_file("res://scenes/betMenu.tscn")
+	# Verificar si el jugador ganó la apuesta
+	if GameData.bet_dog_id != -1:
+		if GameData.bet_dog_id == GameData.race_winner:
+			result_text += "¡Ganaste! "
+		else:
+			result_text += "Perdiste. "
+	else:
+		result_text += "No realizaste ninguna apuesta."
+
+	# Verificar si result_label es válido antes de asignar el texto
+	if result_label != null:
+		result_label.text = result_text  # Para Label
+		# Si usas RichTextLabel, usa bbcode_text en lugar de text:
+		# result_label.bbcode_text = result_text
+	else:
+		print("Error: 'result_label' no encontrado en la escena.")
