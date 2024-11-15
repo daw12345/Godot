@@ -1,0 +1,5 @@
+res://scenes/betMenu.tscn
+res://scenes/race.tscn
+res://scenes/resultScreen.tscn
+res://scripts/raceManager.gd
+res://scripts/result_screen.gd

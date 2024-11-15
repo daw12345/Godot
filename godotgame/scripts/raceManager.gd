@@ -75,8 +75,18 @@ func stop_race():
 			print(str(i + 1) + ". " + dog.name)  # Imprimir el nombre del perro y su puesto
 			if i == 0:
 				dog.mark_as_first_place()  # Marcar al perro como el ganador
-			else:
-				dog.is_first_place = false  # Asegurarse de que los demás no sean primeros
+				GameData.race_winner = i  # Guardar el índice del ganador en lugar de `dog_id`
+
+		# Evaluar si el jugador ganó la apuesta usando el índice en lugar del `dog_id`
+		GameData.won_bet = (GameData.bet_dog_id == GameData.race_winner)
+		if GameData.won_bet:
+			GameData.balance += GameData.bet_amount * 2  # Doble del monto apostado si gana la apuesta
+			print("¡Ganaste la apuesta! Tu saldo actual es de $", GameData.balance)
+		else:
+			print("Perdiste la apuesta. Tu saldo actual es de $", GameData.balance)
+
+		# Cambia a la pantalla de resultados
+		get_tree().change_scene_to_file("res://scenes/resultScreen.tscn")
 
 		# Establecer la bandera para evitar que se repita
 		race_ended = true
@@ -85,3 +95,17 @@ func stop_race():
 func _compare_by_position(a, b):
 	# Comparar por la posición X para ordenarlos por la llegada
 	return a.position.x > b.position.x  # El perro con mayor valor de X llega primero
+
+# Función para confirmar la apuesta
+func confirm_bet():
+	# Aquí, puedes asignar la apuesta a un índice en lugar de un `dog_id`
+	GameData.bet_dog_id = 0  # Por ejemplo, se está apostando al perro en el índice 0 de la lista
+	GameData.bet_amount = 100
+
+	# Actualiza el saldo al hacer la apuesta
+	GameData.balance -= GameData.bet_amount
+	print("Apuesta realizada en el perro con índice", GameData.bet_dog_id, "con una cantidad de $", GameData.bet_amount)
+	print("Saldo restante: $", GameData.balance)
+
+	# Cambia a la escena de carrera
+	get_tree().change_scene_to_file("res://scenes/race.tscn")

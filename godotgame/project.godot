@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="GodotGame"
-run/main_scene="res://scenes/race.tscn"
+run/main_scene="res://scenes/betMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+
+[autoload]
+
+GameData="*res://scripts/GameData.gd"
 
 [input]
 
