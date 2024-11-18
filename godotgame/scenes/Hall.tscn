@@ -226,7 +226,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 8.0
+"speed": 4.0
 }]
 
 [node name="Hall" type="Node2D"]
@@ -244,7 +244,7 @@ frame_progress = 0.277114
 script = ExtResource("3_kj5h5")
 start_position = Vector2(-220, 85)
 end_position = Vector2(160, 85)
-speed = 15.0
+speed = 20.0
 
 [node name="shark2" type="AnimatedSprite2D" parent="."]
 position = Vector2(57, 100)
@@ -252,9 +252,10 @@ scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_dv6da")
 frame_progress = 0.57193
 script = ExtResource("3_kj5h5")
-start_position = Vector2(160, 95)
-end_position = Vector2(-220, 95)
-speed = 15.0
+start_position = Vector2(160, 100)
+end_position = Vector2(-220, 100)
+speed = 20.0
+y_offset = -20.0
 
 [node name="Bh2" type="AnimatedSprite2D" parent="."]
 position = Vector2(-32, 135)
@@ -268,8 +269,7 @@ script = ExtResource("6_68d3t")
 position = Vector2(67, 123)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_kqdg0")
-animation = &"idle"
-frame_progress = 0.335551
+animation = &"walk"
 script = ExtResource("8_ir2aw")
 
 [node name="Bh1" type="AnimatedSprite2D" parent="."]
