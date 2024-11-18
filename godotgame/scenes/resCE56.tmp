@@ -1,0 +1,179 @@
+[gd_scene load_steps=11 format=3 uid="uid://c7tf4cshg8otu"]
+
+[ext_resource type="Script" path="res://scripts/result_screen.gd" id="1_thxob"]
+[ext_resource type="Texture2D" uid="uid://c0fx04pxy4tlh" path="res://assets/backgroundResults.png" id="2_fbk5o"]
+[ext_resource type="FontFile" uid="uid://4lhe6j1fp84n" path="res://assets/8-bit-hud.ttf" id="3_pe2ax"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_grpa3"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_18328"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_lftbf"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_jnpqd"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_rmuwx"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_qvfli"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_6ayl6"]
+color = Color(0, 0, 0, 0)
+
+[node name="ResultScreen" type="Node2D"]
+script = ExtResource("1_thxob")
+
+[node name="BackgroundResults" type="Sprite2D" parent="."]
+position = Vector2(576, 312)
+texture = ExtResource("2_fbk5o")
+
+[node name="DogPlace1" type="Label" parent="."]
+offset_left = 192.0
+offset_top = 168.0
+offset_right = 408.0
+offset_bottom = 207.0
+theme_override_fonts/font = ExtResource("3_pe2ax")
+theme_override_font_sizes/font_size = 15
+text = "- 1st Dog1"
+
+[node name="DogPlace2" type="Label" parent="."]
+offset_left = 192.0
+offset_top = 208.0
+offset_right = 408.0
+offset_bottom = 247.0
+theme_override_fonts/font = ExtResource("3_pe2ax")
+theme_override_font_sizes/font_size = 15
+text = "- 1st Dog1"
+
+[node name="DogPlace3" type="Label" parent="."]
+offset_left = 192.0
+offset_top = 248.0
+offset_right = 408.0
+offset_bottom = 287.0
+theme_override_fonts/font = ExtResource("3_pe2ax")
+theme_override_font_sizes/font_size = 15
+text = "- 1st Dog1"
+
+[node name="DogPlace4" type="Label" parent="."]
+offset_left = 192.0
+offset_top = 288.0
+offset_right = 408.0
+offset_bottom = 327.0
+theme_override_fonts/font = ExtResource("3_pe2ax")
+theme_override_font_sizes/font_size = 15
+text = "- 1st Dog1"
+
+[node name="DogPlace5" type="Label" parent="."]
+offset_left = 192.0
+offset_top = 328.0
+offset_right = 408.0
+offset_bottom = 367.0
+theme_override_fonts/font = ExtResource("3_pe2ax")
+theme_override_font_sizes/font_size = 15
+text = "- 1st Dog1"
+
+[node name="DogPlace6" type="Label" parent="."]
+offset_left = 192.0
+offset_top = 368.0
+offset_right = 408.0
+offset_bottom = 407.0
+theme_override_fonts/font = ExtResource("3_pe2ax")
+theme_override_font_sizes/font_size = 15
+text = "- 1st Dog1"
+
+[node name="DogPlace7" type="Label" parent="."]
+offset_left = 192.0
+offset_top = 408.0
+offset_right = 408.0
+offset_bottom = 447.0
+theme_override_fonts/font = ExtResource("3_pe2ax")
+theme_override_font_sizes/font_size = 15
+text = "- 1st Dog1"
+
+[node name="DogPlace8" type="Label" parent="."]
+offset_left = 192.0
+offset_top = 448.0
+offset_right = 408.0
+offset_bottom = 487.0
+theme_override_fonts/font = ExtResource("3_pe2ax")
+theme_override_font_sizes/font_size = 15
+text = "- 1st Dog1"
+
+[node name="Title" type="Label" parent="."]
+offset_left = 200.0
+offset_top = 104.0
+offset_right = 392.0
+offset_bottom = 151.0
+theme_override_fonts/font = ExtResource("3_pe2ax")
+theme_override_font_sizes/font_size = 15
+text = "results.."
+
+[node name="winnerTitle" type="Label" parent="."]
+offset_left = 576.0
+offset_top = 232.0
+offset_right = 768.0
+offset_bottom = 279.0
+theme_override_fonts/font = ExtResource("3_pe2ax")
+theme_override_font_sizes/font_size = 15
+text = "winner:"
+
+[node name="amount" type="Label" parent="."]
+offset_left = 576.0
+offset_top = 144.0
+offset_right = 768.0
+offset_bottom = 191.0
+theme_override_fonts/font = ExtResource("3_pe2ax")
+theme_override_font_sizes/font_size = 20
+text = "amount:"
+
+[node name="money" type="Label" parent="."]
+offset_left = 752.0
+offset_top = 144.0
+offset_right = 944.0
+offset_bottom = 191.0
+theme_override_fonts/font = ExtResource("3_pe2ax")
+theme_override_font_sizes/font_size = 20
+text = "200"
+
+[node name="profitTitle" type="Label" parent="."]
+offset_left = 576.0
+offset_top = 96.0
+offset_right = 768.0
+offset_bottom = 143.0
+theme_override_fonts/font = ExtResource("3_pe2ax")
+theme_override_font_sizes/font_size = 20
+text = "profit:"
+
+[node name="profit" type="Label" parent="."]
+offset_left = 752.0
+offset_top = 96.0
+offset_right = 944.0
+offset_bottom = 143.0
+theme_override_fonts/font = ExtResource("3_pe2ax")
+theme_override_font_sizes/font_size = 20
+text = "200"
+
+[node name="continue" type="Button" parent="."]
+offset_left = 696.0
+offset_top = 480.0
+offset_right = 844.0
+offset_bottom = 515.0
+theme_override_fonts/font = ExtResource("3_pe2ax")
+theme_override_font_sizes/font_size = 0
+theme_override_styles/focus = SubResource("StyleBoxLine_grpa3")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxLine_18328")
+theme_override_styles/hover_pressed = SubResource("StyleBoxLine_lftbf")
+theme_override_styles/hover = SubResource("StyleBoxLine_jnpqd")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxLine_rmuwx")
+theme_override_styles/pressed = SubResource("StyleBoxLine_qvfli")
+theme_override_styles/normal = SubResource("StyleBoxLine_6ayl6")
+text = "continue
+"
+
+[node name="resultScreenCam" type="Camera2D" parent="."]
+position = Vector2(567, 315)

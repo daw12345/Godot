@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://hnvf2p07ionk"]
+[gd_scene load_steps=12 format=3 uid="uid://hnvf2p07ionk"]
 
 [ext_resource type="Script" path="res://scripts/bet_menu.gd" id="1_53s50"]
 [ext_resource type="Texture2D" uid="uid://c17hrikqkkose" path="res://assets/betBackground.png" id="2_y0gd5"]
@@ -6,7 +6,17 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4t7tf"]
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_335o1"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_p8m1f"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_qgpv5"]
+
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_prfvl"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_gp0me"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_mdmmk"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_g7lrt"]
 
@@ -28,15 +38,15 @@ text = "bets"
 
 [node name="dog2" type="Label" parent="."]
 offset_left = -384.0
-offset_top = -256.0
-offset_right = -1.0
-offset_bottom = -184.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = -120.0
 theme_override_colors/font_color = Color(0.984314, 0.988235, 0, 0.709804)
 theme_override_fonts/font = ExtResource("3_jmkel")
 theme_override_font_sizes/font_size = 20
-text = "dog2                             1/2"
+text = "dog2                             3/1"
 
-[node name="betSquare" type="LineEdit" parent="dog2"]
+[node name="betSquare2" type="LineEdit" parent="dog2"]
 layout_mode = 0
 offset_left = 624.0
 offset_top = -8.0
@@ -53,15 +63,15 @@ virtual_keyboard_type = 2
 
 [node name="dog1" type="Label" parent="."]
 offset_left = -384.0
-offset_top = -192.0
-offset_right = -1.0
-offset_bottom = -120.0
+offset_top = -256.0
+offset_right = 128.0
+offset_bottom = -184.0
 theme_override_colors/font_color = Color(0.984314, 0.988235, 0, 0.709804)
 theme_override_fonts/font = ExtResource("3_jmkel")
 theme_override_font_sizes/font_size = 20
-text = "dog1                              2/1"
+text = "dog1                              1/2"
 
-[node name="betSquare2" type="LineEdit" parent="dog1"]
+[node name="betSquare1" type="LineEdit" parent="dog1"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.111
@@ -79,15 +89,15 @@ max_length = 5
 
 [node name="dog4" type="Label" parent="."]
 offset_left = -384.0
-offset_top = -128.0
-offset_right = -1.0
-offset_bottom = -56.0
+offset_top = -64.0
+offset_right = 128.0
+offset_bottom = 8.0
 theme_override_colors/font_color = Color(0.984314, 0.988235, 0, 0.709804)
 theme_override_fonts/font = ExtResource("3_jmkel")
 theme_override_font_sizes/font_size = 20
 text = "dog4                             2/1"
 
-[node name="betSquare3" type="LineEdit" parent="dog4"]
+[node name="betSquare4" type="LineEdit" parent="dog4"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.111
@@ -105,15 +115,15 @@ max_length = 5
 
 [node name="dog3" type="Label" parent="."]
 offset_left = -384.0
-offset_top = -64.0
-offset_right = -1.0
-offset_bottom = 8.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = -56.0
 theme_override_colors/font_color = Color(0.984314, 0.988235, 0, 0.709804)
 theme_override_fonts/font = ExtResource("3_jmkel")
 theme_override_font_sizes/font_size = 20
 text = "dog3                             3/1"
 
-[node name="betSquare4" type="LineEdit" parent="dog3"]
+[node name="betSquare3" type="LineEdit" parent="dog3"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.111
@@ -131,14 +141,15 @@ max_length = 5
 
 [node name="dog6" type="Label" parent="."]
 offset_left = -384.0
-offset_right = -1.0
-offset_bottom = 72.0
+offset_top = 64.0
+offset_right = 128.0
+offset_bottom = 136.0
 theme_override_colors/font_color = Color(0.984314, 0.988235, 0, 0.709804)
 theme_override_fonts/font = ExtResource("3_jmkel")
 theme_override_font_sizes/font_size = 20
 text = "dog6                             3/1"
 
-[node name="betSquare5" type="LineEdit" parent="dog6"]
+[node name="betSquare6" type="LineEdit" parent="dog6"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.111
@@ -156,15 +167,14 @@ max_length = 5
 
 [node name="dog5" type="Label" parent="."]
 offset_left = -384.0
-offset_top = 64.0
-offset_right = -1.0
-offset_bottom = 136.0
+offset_right = 128.0
+offset_bottom = 72.0
 theme_override_colors/font_color = Color(0.984314, 0.988235, 0, 0.709804)
 theme_override_fonts/font = ExtResource("3_jmkel")
 theme_override_font_sizes/font_size = 20
-text = "dog5                             3/1"
+text = "dog5                             2/1"
 
-[node name="betSquare6" type="LineEdit" parent="dog5"]
+[node name="betSquare5" type="LineEdit" parent="dog5"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.111
@@ -260,11 +270,16 @@ offset_bottom = 419.0
 theme_override_colors/font_hover_color = Color(0.968627, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_jmkel")
 theme_override_font_sizes/font_size = 0
+theme_override_styles/focus = SubResource("StyleBoxLine_335o1")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxLine_p8m1f")
+theme_override_styles/hover_pressed = SubResource("StyleBoxLine_qgpv5")
 theme_override_styles/hover = SubResource("StyleBoxLine_prfvl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxLine_gp0me")
+theme_override_styles/pressed = SubResource("StyleBoxLine_mdmmk")
 theme_override_styles/normal = SubResource("StyleBoxLine_g7lrt")
 text = "confirm"
 
 [node name="menuBetCam" type="Camera2D" parent="."]
-position = Vector2(-1112, -592)
+position = Vector2(-1104, -640)
 anchor_mode = 0
 zoom = Vector2(0.5, 0.5)

@@ -1,7 +1,0 @@
-res://scenes/betMenu.tscn
-res://scenes/race.tscn
-res://scenes/resultScreen.tscn
-res://scripts/bet_menu.gd
-res://scripts/raceManager.gd
-res://scripts/GameData.gd
-res://scripts/result_screen.gd

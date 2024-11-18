@@ -708,7 +708,7 @@ script = ExtResource("5_fbxqh")
 dog_parameters = ExtResource("30_0fsei")
 
 [node name="Dog8" type="AnimatedSprite2D" parent="." groups=["dogs"]]
-position = Vector2(-443, 267)
+position = Vector2(-442, 267)
 sprite_frames = SubResource("SpriteFrames_cxwda")
 animation = &"run"
 frame_progress = 0.0252739

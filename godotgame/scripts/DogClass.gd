@@ -10,13 +10,14 @@ var target_speed : float = 0.0
 var race_started : bool = false
 var is_bursting : bool = false
 var race_ended : bool = false
-var is_first_place : bool = false
+var is_first_place : bool = false 
 var slow_factor : float = 0.5
 var burst_used : bool = false
 var burst_time_left : float = 0.0
 var stop_time_left : float = 0.0
-var burst_triggered : bool = false  # Para asegurarnos de que el burst solo ocurra una vez
-var stop_triggered : bool = false  # Para asegurarnos de que la parada solo ocurra una vez
+var burst_triggered : bool = false
+var stop_triggered : bool = false
+var dog_id : int = -1  # ID único para cada perro
 
 # Función para asignar parámetros al perro
 func set_dog_parameters(params : DogParameters):

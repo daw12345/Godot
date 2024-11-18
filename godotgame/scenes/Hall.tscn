@@ -1,0 +1,111 @@
+[gd_scene load_steps=15 format=3 uid="uid://drms2uu8f01u8"]
+
+[ext_resource type="Texture2D" uid="uid://csn1ca1ou6k4a" path="res://assets/shark.png" id="1_epf0i"]
+[ext_resource type="Texture2D" uid="uid://bi1l7cc8uukmk" path="res://assets/bh2.png" id="2_xdqcv"]
+[ext_resource type="Texture2D" uid="uid://djogbkntvyise" path="res://assets/bh1.png" id="3_d47ru"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsvqn"]
+atlas = ExtResource("1_epf0i")
+region = Rect2(0, 0, 730, 230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7naa3"]
+atlas = ExtResource("1_epf0i")
+region = Rect2(730, 0, 730, 230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yejt2"]
+atlas = ExtResource("1_epf0i")
+region = Rect2(1460, 0, 730, 230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6snc"]
+atlas = ExtResource("1_epf0i")
+region = Rect2(2190, 0, 730, 230)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dv6da"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsvqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7naa3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yejt2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6snc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpbl5"]
+atlas = ExtResource("2_xdqcv")
+region = Rect2(0, 0, 3230, 2230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fok46"]
+atlas = ExtResource("2_xdqcv")
+region = Rect2(0, 2230, 3230, 2230)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_76ljb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpbl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fok46")
+}],
+"loop": true,
+"name": &"default",
+"speed": 14.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2umoa"]
+atlas = ExtResource("3_d47ru")
+region = Rect2(0, 0, 3230, 2730)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usot8"]
+atlas = ExtResource("3_d47ru")
+region = Rect2(0, 2730, 3230, 2730)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8hnlx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2umoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usot8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Hall" type="Node2D"]
+
+[node name="shark" type="AnimatedSprite2D" parent="."]
+position = Vector2(-104, 78)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_dv6da")
+frame_progress = 0.410937
+
+[node name="shark2" type="AnimatedSprite2D" parent="."]
+position = Vector2(57, 100)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_dv6da")
+frame_progress = 0.0999263
+
+[node name="Bh2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-32, 135)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_76ljb")
+frame_progress = 0.19142
+
+[node name="Bh1" type="AnimatedSprite2D" parent="."]
+position = Vector2(-32, 160)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_8hnlx")
+frame_progress = 0.358147

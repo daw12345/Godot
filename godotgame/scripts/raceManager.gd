@@ -1,97 +1,107 @@
-extends Node2D
+extends Node
 
 var dogs = []  # Lista de perros en la carrera
-var race_distance = 1000  # Distancia de la carrera (en píxeles)
+var race_distance = 3000  # Distancia de la carrera (en píxeles)
 var race_timer : Timer  # Temporizador para iniciar la carrera
 var dogs_finished = 0  # Número de perros que han llegado a la meta
 var race_results = []  # Lista para almacenar los perros que han llegado a la meta
 var race_ended = false  # Bandera para asegurarse de que la carrera termine solo una vez
 
 func _ready():
-	# Obtener todos los perros en la escena
-	dogs = get_tree().get_nodes_in_group("dogs")  # Añadir los perros al grupo "dogs"
+	# Obtener todos los perros en la escena (perros deben estar en el grupo "dogs")
+	dogs = get_tree().get_nodes_in_group("dogs")
+
+	# Asignar IDs únicos a cada perro basado en el nombre del AnimatedSprite
+	for dog in dogs:
+		var dog_name = dog.name  # El nombre de cada perro (Dog1, Dog2, etc.)
+		var dog_id = int(dog_name.substr(3, 1))  # Extraer el ID del nombre
+		dog.dog_id = dog_id  # Asignar el ID al perro
 	
 	# Crear y configurar el temporizador
 	race_timer = Timer.new()
 	add_child(race_timer)
 	race_timer.wait_time = 4.0  # Esperar 4 segundos antes de iniciar la carrera
 	race_timer.one_shot = true  # No repetir
-
-	# Conectar la señal de timeout del temporizador a la función _on_race_start
 	race_timer.connect("timeout", Callable(self, "_on_race_start"))
 	
-	# Mostrar mensaje de preparación
 	print("Preparándose para la carrera...")
+	race_timer.start()  # Inicia el temporizador
 
-	# Iniciar la cuenta regresiva
-	race_timer.start()  # Comienza el temporizador para el inicio de la carrera
-
-# Función llamada cuando se activa el temporizador para iniciar la carrera
 func _on_race_start():
 	print("¡La carrera ha comenzado!")
 	start_race()
 
-# Función para iniciar la carrera
 func start_race():
-	# Reiniciar el contador de perros terminados y los resultados
+	# Reiniciar contador de perros y resultados
 	dogs_finished = 0
-	race_results.clear()  # Limpiar los resultados previos
-	# Iniciar la carrera para todos los perros
+	race_results.clear()
 	for dog in dogs:
-		dog.start_race()  # Llamar a la función que inicia la carrera de cada perro
+		dog.start_race()  # Inicia la carrera para cada perro
 
-# Función para comprobar si algún perro ha cruzado la meta
 func _process(delta):
-	# Comprobar si algún perro ha cruzado la meta
+	# Verificar si algún perro ha cruzado la meta
 	for dog in dogs:
-		# Si el perro ha llegado a la meta y no ha sido contado aún
 		if dog.position.x >= race_distance and not dog.race_ended:
-			dog.race_ended = true  # Marcar que el perro ha terminado la carrera
-			dogs_finished += 1  # Incrementar el contador de perros que han llegado
-			race_results.append(dog)  # Agregar el perro a los resultados
-			dog.stop_race()  # Detener al perro en cuanto cruce la meta
+			dog.race_ended = true
+			dogs_finished += 1
+			race_results.append(dog)
+			dog.stop_race()
+
+			# Si es el primer perro en cruzar la meta, marcarlo como el primero (ganador)
+			if dogs_finished == 1:
+				dog.mark_as_first_place()
 
 	# Si todos los perros han terminado y la carrera aún no ha sido detenida
 	if dogs_finished == dogs.size() and not race_ended:
 		stop_race()
 
-# Función para detener la carrera cuando haya un ganador
 func stop_race():
-	# Detener la carrera para todos los perros
+	# Detener la carrera de todos los perros
 	for dog in dogs:
 		if dog.race_ended:
-			dog.stop_race()  # Llamar a la función que detiene la carrera de cada perro
+			dog.stop_race()
 
-	# Imprimir los resultados finales **solo después de que todos los perros hayan llegado**
+	# Si la carrera no ha sido terminada aún
 	if not race_ended:
 		print("La carrera ha terminado. Resultados finales:")
 
-		# Ordenar los perros por su posición (mayor posición primero)
-		race_results.sort_custom(_compare_by_position)  # Ordenamos la lista con el método de comparación
+		# Guardar resultados de la carrera en GameData
+		GameData.race_results.clear()
+		for index in range(race_results.size()):
+			var dog = race_results[index]
+			var position = index + 1  # Posición basada en el índice
+			GameData.race_results.append({
+				"id": dog.dog_id,
+				"name": dog.name,
+				"position": position
+			})
+			print("Posición " + str(position) + ": Perro " + str(dog.dog_id))
 
-		# Marcar al primero como 'is_first_place'
-		for i in range(race_results.size()):
-			var dog = race_results[i]
-			print(str(i + 1) + ". " + dog.name)  # Imprimir el nombre del perro y su puesto
-			if i == 0:
-				dog.mark_as_first_place()  # Marcar al perro como el ganador
-				GameData.race_winner = i  # Guardar el índice del ganador en lugar de `dog_id`
+		# Determinar el perro ganador
+		var winning_dog = race_results[0]  # El primer perro en la lista es el ganador
+		GameData.race_winner = winning_dog.dog_id
+		print("Ganador: Perro", winning_dog.dog_id)
 
-		# Evaluar si el jugador ganó la apuesta
-		var win_message = "Perdiste la apuesta. "
-		if GameData.bet_dog_id == GameData.race_winner:
-			GameData.balance += GameData.bet_amounts[GameData.bet_dog_id] * 2  # Doble del monto apostado si gana la apuesta
-			win_message = "¡Ganaste la apuesta! "
-		# Muestra el mensaje de ganancia o pérdida
-		print(win_message + "Tu saldo actual es de $", GameData.balance)
+		# Feedback de las apuestas
+		var results_feedback = ""
+		for dog_id in GameData.bet_amounts.keys():
+			var bet_amount = GameData.bet_amounts[dog_id]
+			if dog_id == GameData.race_winner:
+				# Ajuste en el índice de apuestas (dog_id - 1) para acceder correctamente a las apuestas
+				var winnings = bet_amount * GameData.payout_rates[dog_id - 1]  # dog_id - 1 para el índice correcto
+				GameData.balance += winnings
+				results_feedback += "¡Ganaste la apuesta al Perro " + str(dog_id) + "! Ganaste $" + str(winnings) + ".\n"
+			else:
+				results_feedback += "Perdiste la apuesta al Perro " + str(dog_id) + ". Apostaste $" + str(bet_amount) + ".\n"
 
-		# Cambia a la pantalla de resultados
+		print(results_feedback)
+		print("Tu saldo actual es de $", GameData.balance)
+		
+		race_ended = true
+		
+		# Cambiar a la pantalla de resultados
 		get_tree().change_scene_to_file("res://scenes/resultScreen.tscn")
 
-		# Establecer la bandera para evitar que se repita
-		race_ended = true
-
-# Función de comparación para ordenar los perros por su posición (de mayor a menor)
 func _compare_by_position(a, b):
-	# Comparar por la posición X para ordenarlos por la llegada
-	return a.position.x > b.position.x  # El perro con mayor valor de X llega primero
+	# Ordenamos según la posición en la carrera (la posición más alta en X es la que más avanzó)
+	return a.position.x > b.position.x
