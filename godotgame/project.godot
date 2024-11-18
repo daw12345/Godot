@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GodotGame"
-run/main_scene="res://scenes/betMenu.tscn"
+run/main_scene="res://scenes/Hall.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
 [autoload]
