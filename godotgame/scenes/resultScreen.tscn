@@ -322,7 +322,7 @@ theme_override_fonts/font = ExtResource("3_pe2ax")
 theme_override_font_sizes/font_size = 15
 text = "200"
 
-[node name="continue" type="Button" parent="."]
+[node name="Continue" type="Button" parent="."]
 offset_left = 696.0
 offset_top = 480.0
 offset_right = 844.0
@@ -348,3 +348,5 @@ animation = &"8"
 
 [node name="resultScreenCam" type="Camera2D" parent="."]
 position = Vector2(567, 315)
+
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]

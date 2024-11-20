@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0u2fky5htet2"
-path="res://.godot/imported/ladyWalk.png-d7f2c066f544643a623441f64afd0ff2.ctex"
+uid="uid://cuncav708mf6s"
+path="res://.godot/imported/boss.png-266cbc3c76e12bc7d5a53d685b9ff650.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ladyWalk.png"
-dest_files=["res://.godot/imported/ladyWalk.png-d7f2c066f544643a623441f64afd0ff2.ctex"]
+source_file="res://assets/boss.png"
+dest_files=["res://.godot/imported/boss.png-266cbc3c76e12bc7d5a53d685b9ff650.ctex"]
 
 [params]
 

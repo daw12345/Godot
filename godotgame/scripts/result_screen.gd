@@ -99,3 +99,12 @@ func total_profit_text(profit):
 		return "$" + str(profit)  # Ganancia positiva
 	else:
 		return "-$" + str(abs(profit))  # Pérdida negativa
+		
+
+
+# Lógica para manejar el botón "Continuar"
+
+
+func _on_continue_pressed() -> void:
+	print("Continuar presionado. Cambiando de escena...")
+	get_tree().change_scene_to_file("res://scenes/Hall.tscn")
