@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=3 uid="uid://drms2uu8f01u8"]
+[gd_scene load_steps=86 format=3 uid="uid://drms2uu8f01u8"]
 
 [ext_resource type="Texture2D" uid="uid://bjk8qn8egtibx" path="res://assets/bh3.png" id="1_agol5"]
 [ext_resource type="Texture2D" uid="uid://csn1ca1ou6k4a" path="res://assets/shark.png" id="1_epf0i"]
@@ -11,14 +11,8 @@
 [ext_resource type="Script" path="res://scripts/lady_script.gd" id="8_ir2aw"]
 [ext_resource type="Script" path="res://scripts/prota_script.gd" id="9_02d4n"]
 [ext_resource type="Script" path="res://scripts/collision_screen.gd" id="9_5nea4"]
-[ext_resource type="Script" path="res://scripts/dialog_box.gd" id="9_54rtn"]
-[ext_resource type="FontFile" uid="uid://4lhe6j1fp84n" path="res://assets/8-bit-hud.ttf" id="10_03kvn"]
-[ext_resource type="Texture2D" uid="uid://j3niuwwymm7t" path="res://assets/diags.png" id="10_r27pk"]
 [ext_resource type="Texture2D" uid="uid://bpuprl35cxoq6" path="res://assets/sheetOfProta.png" id="10_ytpax"]
-[ext_resource type="Texture2D" uid="uid://wy71vdbmmvpd" path="res://assets/face.png" id="12_k8b1q"]
 [ext_resource type="Texture2D" uid="uid://b8rdplb488rss" path="res://assets/in in IN!.png" id="12_txxtr"]
-[ext_resource type="Texture2D" uid="uid://cuncav708mf6s" path="res://assets/boss.png" id="15_px3tj"]
-[ext_resource type="Texture2D" uid="uid://dl18b1iuw5h5e" path="res://assets/misc.png" id="19_hyai7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsvqn"]
 atlas = ExtResource("1_epf0i")
@@ -77,6 +71,9 @@ animations = [{
 "name": &"default",
 "speed": 14.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yawnd"]
+size = Vector2(140, 430)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2k384"]
 atlas = ExtResource("6_sqwun")
@@ -295,25 +292,6 @@ animations = [{
 "speed": 9.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yawnd"]
-size = Vector2(140, 430)
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_sog5a"]
-color = Color(0, 0, 0, 0)
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_nofls"]
-color = Color(0, 0, 0, 0)
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_a6ahf"]
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_p1agf"]
-color = Color(0, 0, 0, 0)
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_s47id"]
-color = Color(0, 0, 0, 0)
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_e1qvk"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_t5yna"]
 atlas = ExtResource("3_d47ru")
 region = Rect2(0, 0, 4430, 2730)
@@ -486,183 +464,8 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_upna2"]
-atlas = ExtResource("15_px3tj")
-region = Rect2(9600, 0, 1200, 1200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_umv35"]
-atlas = ExtResource("15_px3tj")
-region = Rect2(10800, 0, 1200, 1200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2foyt"]
-atlas = ExtResource("15_px3tj")
-region = Rect2(12000, 0, 1200, 1200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g0bj8"]
-atlas = ExtResource("15_px3tj")
-region = Rect2(13200, 0, 1200, 1200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dwxjk"]
-atlas = ExtResource("15_px3tj")
-region = Rect2(14400, 0, 1200, 1200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3071n"]
-atlas = ExtResource("15_px3tj")
-region = Rect2(15600, 0, 1200, 1200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pw37q"]
-atlas = ExtResource("15_px3tj")
-region = Rect2(16800, 0, 1200, 1200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cpygg"]
-atlas = ExtResource("15_px3tj")
-region = Rect2(18000, 0, 1200, 1200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5dj06"]
-atlas = ExtResource("15_px3tj")
-region = Rect2(0, 0, 1200, 1200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aa6bi"]
-atlas = ExtResource("15_px3tj")
-region = Rect2(3600, 0, 1200, 1200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8nm77"]
-atlas = ExtResource("15_px3tj")
-region = Rect2(0, 0, 1200, 1200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ywii"]
-atlas = ExtResource("15_px3tj")
-region = Rect2(2400, 0, 1200, 1200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i2lis"]
-atlas = ExtResource("15_px3tj")
-region = Rect2(1200, 0, 1200, 1200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yaral"]
-atlas = ExtResource("15_px3tj")
-region = Rect2(4800, 0, 1200, 1200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vs84v"]
-atlas = ExtResource("15_px3tj")
-region = Rect2(6000, 0, 1200, 1200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_grwbx"]
-atlas = ExtResource("15_px3tj")
-region = Rect2(7200, 0, 1200, 1200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bxmwq"]
-atlas = ExtResource("15_px3tj")
-region = Rect2(8400, 0, 1200, 1200)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_wujbm"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_upna2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_umv35")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2foyt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g0bj8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dwxjk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3071n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pw37q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cpygg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pw37q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cpygg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pw37q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cpygg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pw37q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cpygg")
-}],
-"loop": true,
-"name": &"final",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5dj06")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aa6bi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8nm77")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0ywii")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i2lis")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8nm77")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aa6bi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8nm77")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aa6bi")
-}],
-"loop": true,
-"name": &"speak",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yaral")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vs84v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_grwbx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bxmwq")
-}],
-"loop": true,
-"name": &"speak2",
 "speed": 5.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ued0d"]
-size = Vector2(34, 68)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p7t4r"]
 load_path = "res://.godot/imported/sheetOfProta.png-4ffac5f04717b1f223e74e135e9d4eed.ctex"
@@ -782,32 +585,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4a862"]
 size = Vector2(31, 76)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xqc8y"]
-atlas = ExtResource("19_hyai7")
-region = Rect2(0, 0, 1000, 1000)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_vsg2n"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xqc8y")
-}],
-"loop": true,
-"name": &"table",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wjtn3"]
-radius = 44.7158
-height = 420.179
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_clhir"]
-size = Vector2(70, 205)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6kyg3"]
-radius = 5.0
-height = 66.0
-
 [node name="Hall" type="Node2D"]
 
 [node name="Bh3" type="Sprite2D" parent="."]
@@ -845,6 +622,19 @@ script = ExtResource("6_68d3t")
 
 [node name="Lady" type="Node2D" parent="."]
 script = ExtResource("8_ir2aw")
+start_position = null
+end_position = null
+speed = null
+idle_duration = null
+
+[node name="AreaLady" type="Area2D" parent="Lady"]
+position = Vector2(66, 127)
+scale = Vector2(0.1, 0.1)
+
+[node name="ladyColl" type="CollisionShape2D" parent="Lady/AreaLady"]
+position = Vector2(10, -115)
+shape = SubResource("RectangleShape2D_yawnd")
+debug_color = Color(0.896191, 0.272419, 0.42557, 0.42)
 
 [node name="lady" type="AnimatedSprite2D" parent="Lady"]
 position = Vector2(66, 127)
@@ -861,86 +651,6 @@ sprite_frames = SubResource("SpriteFrames_fdlna")
 frame = 6
 frame_progress = 1.0
 
-[node name="AreaLady" type="Area2D" parent="Lady"]
-position = Vector2(66, 127)
-scale = Vector2(0.1, 0.1)
-priority = 1
-
-[node name="ladyColl" type="CollisionShape2D" parent="Lady/AreaLady"]
-position = Vector2(10, -115)
-shape = SubResource("RectangleShape2D_yawnd")
-debug_color = Color(0.896191, 0.272419, 0.42557, 0.42)
-
-[node name="DialogBox" type="Panel" parent="Lady"]
-top_level = true
-offset_left = 109.0
-offset_top = 107.0
-offset_right = 202.0
-offset_bottom = 172.0
-script = ExtResource("9_54rtn")
-
-[node name="background" type="Sprite2D" parent="Lady/DialogBox"]
-position = Vector2(36.5, 33)
-scale = Vector2(0.039, 0.066)
-texture = ExtResource("10_r27pk")
-
-[node name="face" type="Sprite2D" parent="Lady/DialogBox"]
-modulate = Color(1, 1, 1, 0.552941)
-position = Vector2(65, 33)
-scale = Vector2(0.0883333, 0.0933333)
-texture = ExtResource("12_k8b1q")
-
-[node name="DialogText" type="Label" parent="Lady/DialogBox"]
-clip_contents = true
-layout_mode = 0
-offset_left = -10.0
-offset_top = 9.0
-offset_right = 81.0
-offset_bottom = 32.0
-theme_override_colors/font_color = Color(1, 1, 1, 0.698039)
-theme_override_fonts/font = ExtResource("10_03kvn")
-theme_override_font_sizes/font_size = 5
-clip_text = true
-
-[node name="Drink" type="Button" parent="Lady/DialogBox"]
-layout_mode = 0
-offset_left = -13.0
-offset_top = 31.0
-offset_right = 24.0
-offset_bottom = 47.0
-theme_override_colors/font_hover_pressed_color = Color(0.756863, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0.745098, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.737255, 0, 0, 1)
-theme_override_colors/font_color = Color(0.580133, 0.439348, 0, 1)
-theme_override_fonts/font = ExtResource("10_03kvn")
-theme_override_font_sizes/font_size = 5
-theme_override_styles/focus = SubResource("StyleBoxLine_sog5a")
-theme_override_styles/hover = SubResource("StyleBoxLine_nofls")
-theme_override_styles/normal = SubResource("StyleBoxLine_a6ahf")
-text = "drink"
-
-[node name="Cancel" type="Button" parent="Lady/DialogBox"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.406
-anchor_top = 0.611
-anchor_right = 0.406
-anchor_bottom = 0.611
-offset_left = -46.758
-offset_top = 5.28499
-offset_right = -9.75801
-offset_bottom = 20.285
-theme_override_colors/font_hover_pressed_color = Color(0.666667, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0.666667, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.560784, 0, 0, 1)
-theme_override_colors/font_color = Color(0.562542, 0.460639, 0.0169911, 1)
-theme_override_fonts/font = ExtResource("10_03kvn")
-theme_override_font_sizes/font_size = 5
-theme_override_styles/focus = SubResource("StyleBoxLine_p1agf")
-theme_override_styles/hover = SubResource("StyleBoxLine_s47id")
-theme_override_styles/normal = SubResource("StyleBoxLine_e1qvk")
-text = "cancel"
-
 [node name="front" type="StaticBody2D" parent="."]
 
 [node name="Bh1" type="AnimatedSprite2D" parent="front"]
@@ -951,7 +661,7 @@ frame_progress = 1.0
 script = ExtResource("6_68d3t")
 
 [node name="collision1" type="CollisionShape2D" parent="front"]
-position = Vector2(-31, 105)
+position = Vector2(-30.5, 104)
 shape = SubResource("RectangleShape2D_0xnif")
 
 [node name="collision2" type="CollisionShape2D" parent="front"]
@@ -998,24 +708,6 @@ scale = Vector2(0.108125, 0.0964063)
 sprite_frames = SubResource("SpriteFrames_bmmrn")
 frame_progress = 0.0535803
 
-[node name="Boss" type="Node2D" parent="."]
-position = Vector2(109, 107)
-
-[node name="bossAnim" type="AnimatedSprite2D" parent="Boss"]
-position = Vector2(-258, 31)
-scale = Vector2(0.0864583, 0.0870833)
-sprite_frames = SubResource("SpriteFrames_wujbm")
-animation = &"idle"
-frame_progress = 0.537583
-
-[node name="bossArea" type="Area2D" parent="Boss"]
-position = Vector2(-272, 21)
-
-[node name="bossColl" type="CollisionShape2D" parent="Boss/bossArea"]
-position = Vector2(7, 13)
-shape = SubResource("RectangleShape2D_ued0d")
-debug_color = Color(0.9238, 0.180511, 0.523707, 0.42)
-
 [node name="prota" type="CharacterBody2D" parent="."]
 script = ExtResource("9_02d4n")
 
@@ -1032,30 +724,6 @@ shape = SubResource("RectangleShape2D_4a862")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-32, 159)
 zoom = Vector2(2.4, 2.4)
-
-[node name="mesa2" type="StaticBody2D" parent="."]
-
-[node name="table" type="AnimatedSprite2D" parent="mesa2"]
-position = Vector2(92, 273)
-scale = Vector2(0.1, 0.1)
-sprite_frames = SubResource("SpriteFrames_vsg2n")
-animation = &"table"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="mesa2"]
-position = Vector2(58, 276)
-rotation = 1.09083
-scale = Vector2(0.1, 0.1)
-shape = SubResource("CapsuleShape2D_wjtn3")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="mesa2"]
-position = Vector2(99, 301.25)
-scale = Vector2(0.1, 0.1)
-shape = SubResource("RectangleShape2D_clhir")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="mesa2"]
-position = Vector2(101, 296)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_6kyg3")
 
 [connection signal="body_entered" from="Lady/AreaLady" to="Lady" method="_on_area_lady_body_entered"]
 [connection signal="body_exited" from="Lady/AreaLady" to="Lady" method="_on_area_lady_body_exited"]

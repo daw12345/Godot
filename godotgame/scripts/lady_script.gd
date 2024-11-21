@@ -12,16 +12,17 @@ var is_idle: bool = true  # Indica si está en estado de espera
 
 # Temporizador manual para manejar los estados
 var idle_timer: float = 0.0
-
+var can_interact = false
 # Referencia al Sprite2D
 @onready var sprite: AnimatedSprite2D = $lady
 @onready var sprite2: AnimatedSprite2D = $emoji
-
+@onready var dialog: Panel = $DialogBox
 
 func _ready():
 	# Coloca el nodo en la posición inicial
 	position = start_position
 	
+	dialog.visible = false
 	sprite2.visible = false
 	# Inicia la animación idle en el Sprite2D
 	if sprite != null:
@@ -32,8 +33,15 @@ func _ready():
 		sprite.flip_h = false
 	else:
 		print("nope")
-
+	
 func _process(delta):
+	
+	if Input.is_action_just_pressed("action_button"):
+		print("Input detectado: action_button")
+		if can_interact:
+			dialog.visible = true
+		else:
+			print("Interacción no permitida, can_interact es: ", can_interact)
 	
 	if is_idle:
 		# Reducir el temporizador de inactividad
@@ -73,26 +81,39 @@ func _process(delta):
 			sprite.play("idle")
 			# Mantener la orientación original cuando está en "idle"
 			sprite.flip_h = false
+			
 
 
 func _on_area_lady_body_entered(body: Node2D) -> void:
-	print("El personaje ha entrado en el área2 de interacción")
+	if body.name != "prota":
+		return
+	
+	can_interact = true
+	print(can_interact)
+	print("El personaje ha entrado en el área de interacción")
+	sprite2.modulate = Color(1, 1, 1, 0.7)
+	sprite2.play("default")
 	sprite2.visible = true
 	if not is_idle:
 		sprite.play("idle")
-		sprite2.play("default")
-		speed=0
+		speed = 0
 		sprite.stop()
-	idle_timer=-1
+	idle_timer = -1
+	
+	
+	
 
 func _on_area_lady_body_exited(body: Node2D) -> void:
-	print("El personaje ha salido del área2 de interacción")
+	if body.name != "prota":
+		return
+	dialog.visible = false
+	can_interact = false
+	print(can_interact)
+	print("El personaje ha salido del área de interacción")
 	sprite2.visible = false
-	idle_timer=5
+	idle_timer = 5
 	if not is_idle:
-		
 		sprite2.stop()
-		speed=20
+		speed = 20
 		sprite.play("walk")
 		moving_to_end = false
-	
