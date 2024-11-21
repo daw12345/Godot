@@ -16,7 +16,7 @@ func _ready():
 	# Conectamos las señales de los botones para las acciones correspondientes
 	option1_button.connect("pressed", Callable(self, "_on_option1_pressed"))
 	option2_button.connect("pressed", Callable(self, "close"))
-	face.modulate = Color(1.0, 1.0, 1.0, 0.4)
+	face.modulate = Color(1.0, 1.0, 1.0, 1.0)
 func start_dialogue():
 	# Muestra el cuadro de diálogo y habilita los botones
 	visible = true
@@ -63,7 +63,7 @@ func _on_option1_pressed():
 	option2_button.disabled = false  # Habilitar el botón de opción 2
 	option1_button.visible = true  # Asegurarse de que el botón de opción 1 esté visible
 	option2_button.visible = true  # Asegurarse de que el botón de opción 2 esté visible
-	face.modulate = Color(1.0, 1.0, 1.0, 0.4)
+	face.modulate = Color(1.0, 1.0, 1.0,1.0)
 	# Ocultar el cuadro de diálogo
 	visible = false  # Ocultar el panel del diálogo
 	
@@ -93,7 +93,7 @@ func close():
 	option2_button.disabled = false  # Habilitar el botón de opción 2
 	option1_button.visible = true  # Asegurarse de que el botón de opción 1 esté visible
 	option2_button.visible = true  # Asegurarse de que el botón de opción 2 esté visible
-	face.modulate = Color(1.0, 1.0, 1.0, 0.4)
+	face.modulate = Color(1.0, 1.0, 1.0, 1.0)
 	# Ocultar el cuadro de diálogo
 	visible = false  # Ocultar el panel del diálogo
 	
