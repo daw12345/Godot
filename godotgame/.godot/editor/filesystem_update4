@@ -1,6 +1,5 @@
+res://scripts/game_over.gd
+res://scenes/gameOver.tscn
 res://scenes/Hall.tscn
-res://scripts/boss_script.gd
-res://scripts/dialog_box.gd
-res://scenes/boss.gd
-res://scripts/boss.gd
 res://scenes/Contract.tscn
+res://scenes/betMenu.tscn

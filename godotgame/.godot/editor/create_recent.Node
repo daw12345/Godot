@@ -1,8 +1,12 @@
-Panel
-Control
+Button
 Label
+AnimatedSprite2D
+Camera2D
+Control
+TextureRect
+Node2D
 Area2D
+Panel
 Sprite2D
 CollisionShape2D
-Button
 TextEdit

@@ -1,3 +1,83 @@
-[gd_scene format=3 uid="uid://65cr7p4hfir5"]
+[gd_scene load_steps=13 format=3 uid="uid://65cr7p4hfir5"]
 
-[node name="Contract" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://bxarngd8yomjj" path="res://assets/pprs.png" id="1_arbxx"]
+[ext_resource type="Script" path="res://scripts/contract_script.gd" id="1_h4ag4"]
+[ext_resource type="Texture2D" uid="uid://tgyk3wbkd862" path="res://assets/dolars.png" id="1_ixrps"]
+[ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="2_wgmov"]
+[ext_resource type="FontFile" uid="uid://4lhe6j1fp84n" path="res://assets/8-bit-hud.ttf" id="4_j66vp"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_vm0nu"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_7jrvc"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_7rhcb"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_j6a57"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_an8rv"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_orppl"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_8y0tk"]
+color = Color(0, 0, 0, 0)
+
+[node name="Contract" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_h4ag4")
+
+[node name="GenericBg" type="Sprite2D" parent="."]
+position = Vector2(-19.25, -74)
+scale = Vector2(4.87656, 2.50625)
+texture = ExtResource("2_wgmov")
+
+[node name="Dolars" type="Sprite2D" parent="."]
+position = Vector2(349, -19.9999)
+scale = Vector2(0.453333, 0.466333)
+texture = ExtResource("1_ixrps")
+
+[node name="Pprs" type="Sprite2D" parent="."]
+position = Vector2(-198, -4.99998)
+scale = Vector2(0.3795, 0.426799)
+texture = ExtResource("1_arbxx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -38)
+
+[node name="Done" type="Button" parent="."]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 161.0
+offset_right = 528.0
+offset_bottom = 239.0
+theme_override_colors/font_disabled_color = Color(0.823529, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.705882, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.72549, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.607843, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.545098, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_j66vp")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_vm0nu")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxLine_7jrvc")
+theme_override_styles/hover_pressed = SubResource("StyleBoxLine_7rhcb")
+theme_override_styles/hover = SubResource("StyleBoxLine_j6a57")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxLine_an8rv")
+theme_override_styles/pressed = SubResource("StyleBoxLine_orppl")
+theme_override_styles/normal = SubResource("StyleBoxLine_8y0tk")
+text = "continue"
+
+[node name="signherebabe" type="TextureRect" parent="."]
+top_level = true
+layout_mode = 0
+offset_left = -457.0
+offset_top = -277.0
+offset_right = 154.0
+offset_bottom = 206.0
+
+[connection signal="pressed" from="Done" to="." method="_on_done_pressed"]

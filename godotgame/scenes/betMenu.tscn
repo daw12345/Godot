@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://hnvf2p07ionk"]
+[gd_scene load_steps=13 format=3 uid="uid://hnvf2p07ionk"]
 
 [ext_resource type="Script" path="res://scripts/bet_menu.gd" id="1_53s50"]
+[ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="2_qnwik"]
 [ext_resource type="Texture2D" uid="uid://c17hrikqkkose" path="res://assets/betBackground.png" id="2_y0gd5"]
 [ext_resource type="FontFile" uid="uid://4lhe6j1fp84n" path="res://assets/8-bit-hud.ttf" id="3_jmkel"]
 
@@ -22,6 +23,11 @@
 
 [node name="BetMenu" type="Node2D"]
 script = ExtResource("1_53s50")
+
+[node name="GenericBg" type="Sprite2D" parent="."]
+position = Vector2(36.9999, 23)
+scale = Vector2(8.9875, 5.8875)
+texture = ExtResource("2_qnwik")
 
 [node name="background" type="Sprite2D" parent="."]
 texture = ExtResource("2_y0gd5")

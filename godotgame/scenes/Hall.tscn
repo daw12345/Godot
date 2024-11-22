@@ -1,4 +1,4 @@
-[gd_scene load_steps=148 format=3 uid="uid://drms2uu8f01u8"]
+[gd_scene load_steps=149 format=3 uid="uid://drms2uu8f01u8"]
 
 [ext_resource type="Texture2D" uid="uid://bjk8qn8egtibx" path="res://assets/bh3.png" id="1_agol5"]
 [ext_resource type="Texture2D" uid="uid://csn1ca1ou6k4a" path="res://assets/shark.png" id="1_epf0i"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://cn5yoff7ahwwd" path="res://assets/sprite_05.png" id="32_4djjg"]
 [ext_resource type="Texture2D" uid="uid://cfp8dkpcehoht" path="res://assets/sprite_06.png" id="33_5wjqk"]
 [ext_resource type="Texture2D" uid="uid://bod6oyigs8cw8" path="res://assets/sprite_07.png" id="34_7fr4g"]
+[ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="37_1ab6y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsvqn"]
 atlas = ExtResource("1_epf0i")
@@ -886,6 +887,11 @@ sprite_frames = SubResource("SpriteFrames_76ljb")
 frame_progress = 1.0
 script = ExtResource("6_68d3t")
 
+[node name="GenericBg2" type="Sprite2D" parent="."]
+position = Vector2(220, 66)
+scale = Vector2(0.565625, 0.38125)
+texture = ExtResource("37_1ab6y")
+
 [node name="Lady" type="Node2D" parent="."]
 script = ExtResource("8_ir2aw")
 
@@ -1051,7 +1057,7 @@ script = ExtResource("16_nvmte")
 
 [node name="bossAnimation" type="AnimatedSprite2D" parent="boss"]
 process_mode = 3
-position = Vector2(-147, 137)
+position = Vector2(-152, 137)
 scale = Vector2(0.0895833, 0.088125)
 sprite_frames = SubResource("SpriteFrames_1vmaj")
 animation = &"talk1"
@@ -1111,7 +1117,7 @@ text = "next"
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boss/Area2D"]
-position = Vector2(-153.5, 139.5)
+position = Vector2(-158, 140)
 shape = SubResource("RectangleShape2D_855ex")
 debug_color = Color(0.900967, 0.211568, 0.573656, 0.42)
 
@@ -1155,6 +1161,11 @@ shape = SubResource("RectangleShape2D_clhir")
 position = Vector2(101, 296)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6kyg3")
+
+[node name="GenericBg" type="Sprite2D" parent="."]
+position = Vector2(194, 152)
+scale = Vector2(0.39375, 1)
+texture = ExtResource("37_1ab6y")
 
 [connection signal="body_entered" from="Lady/AreaLady" to="Lady" method="_on_area_lady_body_entered"]
 [connection signal="body_exited" from="Lady/AreaLady" to="Lady" method="_on_area_lady_body_exited"]

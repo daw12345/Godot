@@ -51,4 +51,5 @@ func _on_next_pressed() -> void:
 		# Si se llegó al último diálogo, redirige a otra escena
 		print("Se acabó el diálogo. Redirigiendo a otra escena...")
 		_end_dialog()  # Cierra el diálogo
+		get_tree().paused = false
 		get_tree().change_scene_to_file("res://scenes/Contract.tscn") 
