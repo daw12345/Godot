@@ -1,4 +1,4 @@
-[gd_scene load_steps=153 format=3 uid="uid://drms2uu8f01u8"]
+[gd_scene load_steps=168 format=3 uid="uid://drms2uu8f01u8"]
 
 [ext_resource type="Texture2D" uid="uid://bjk8qn8egtibx" path="res://assets/bh3.png" id="1_agol5"]
 [ext_resource type="Texture2D" uid="uid://csn1ca1ou6k4a" path="res://assets/shark.png" id="1_epf0i"]
@@ -39,6 +39,8 @@
 [ext_resource type="Texture2D" uid="uid://bod6oyigs8cw8" path="res://assets/sprite_07.png" id="34_7fr4g"]
 [ext_resource type="Script" path="res://scripts/boss_coll.gd" id="36_wnnsl"]
 [ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="37_1ab6y"]
+[ext_resource type="Script" path="res://scenes/punky_script.gd" id="40_npjoh"]
+[ext_resource type="Texture2D" uid="uid://dvwhnvdbphy6g" path="res://assets/punky.png" id="41_8qmyr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsvqn"]
 atlas = ExtResource("1_epf0i")
@@ -828,6 +830,66 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4a862"]
 size = Vector2(31, 76)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5h7dj"]
+size = Vector2(38, 7.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06chn"]
+size = Vector2(56, 86)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_hldfu"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_4unph"]
+color = Color(0, 0, 0, 0.0117647)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_shr5q"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_q086p"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_cj7s5"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_jkta7"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm3w4"]
+atlas = ExtResource("41_8qmyr")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s421l"]
+atlas = ExtResource("41_8qmyr")
+region = Rect2(1000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fydgr"]
+atlas = ExtResource("41_8qmyr")
+region = Rect2(2000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ppsf"]
+atlas = ExtResource("41_8qmyr")
+region = Rect2(3000, 0, 1000, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g0ncr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm3w4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s421l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fydgr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ppsf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_xqc8y"]
 atlas = ExtResource("19_hyai7")
 region = Rect2(0, 0, 1000, 1000)
@@ -1146,6 +1208,78 @@ animation = &"idle"
 position = Vector2(-78.5, 202)
 shape = SubResource("RectangleShape2D_4a862")
 
+[node name="punky" type="Node2D" parent="."]
+script = ExtResource("40_npjoh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="punky"]
+
+[node name="CollPunk" type="CollisionShape2D" parent="punky/StaticBody2D"]
+position = Vector2(115, 288.813)
+shape = SubResource("RectangleShape2D_5h7dj")
+
+[node name="Area2D" type="Area2D" parent="punky"]
+
+[node name="speakColl" type="CollisionShape2D" parent="punky/Area2D"]
+position = Vector2(104, 243)
+shape = SubResource("RectangleShape2D_06chn")
+debug_color = Color(0.846582, 0.0376049, 0.435604, 0.42)
+
+[node name="Label" type="Sprite2D" parent="punky"]
+top_level = true
+position = Vector2(87.875, 251.125)
+scale = Vector2(0.0674167, 0.06025)
+texture = ExtResource("10_r27pk")
+metadata/_edit_use_anchors_ = true
+
+[node name="blabla" type="Label" parent="punky/Label"]
+anchors_preset = -1
+anchor_left = 0.0249267
+anchor_top = -0.132454
+anchor_right = 0.11526
+anchor_bottom = -0.132454
+offset_left = -1437.57
+offset_top = -184.973
+offset_right = 1398.43
+offset_bottom = 642.027
+theme_override_fonts/font = ExtResource("10_03kvn")
+theme_override_font_sizes/font_size = 85
+text = "this punk's the real deal, don't
+ you think?
+	 don't try to play funny
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="next" type="Button" parent="punky/Label"]
+offset_left = 762.295
+offset_top = 236.842
+offset_right = 1331.3
+offset_bottom = 416.842
+theme_override_colors/font_disabled_color = Color(0.6, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.615686, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.670588, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.615686, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.517647, 0, 0, 1)
+theme_override_colors/font_color = Color(0.460798, 0.390633, 0, 1)
+theme_override_fonts/font = ExtResource("10_03kvn")
+theme_override_font_sizes/font_size = 99
+theme_override_styles/focus = SubResource("StyleBoxLine_hldfu")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxLine_4unph")
+theme_override_styles/hover_pressed = SubResource("StyleBoxLine_shr5q")
+theme_override_styles/hover = SubResource("StyleBoxLine_q086p")
+theme_override_styles/pressed = SubResource("StyleBoxLine_cj7s5")
+theme_override_styles/normal = SubResource("StyleBoxLine_jkta7")
+text = "next
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="punky"]
+position = Vector2(113, 248)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_g0ncr")
+animation = &"idle"
+frame = 2
+frame_progress = 0.931539
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-32, 159)
 zoom = Vector2(2.4, 2.4)
@@ -1153,24 +1287,24 @@ zoom = Vector2(2.4, 2.4)
 [node name="mesa2" type="StaticBody2D" parent="."]
 
 [node name="table" type="AnimatedSprite2D" parent="mesa2"]
-position = Vector2(92, 273)
+position = Vector2(25, 281)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_vsg2n")
 animation = &"table"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mesa2"]
-position = Vector2(58, 276)
+position = Vector2(-9.00002, 284)
 rotation = 1.09083
 scale = Vector2(0.1, 0.1)
 shape = SubResource("CapsuleShape2D_wjtn3")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="mesa2"]
-position = Vector2(99, 301.25)
+position = Vector2(32, 309.25)
 scale = Vector2(0.1, 0.1)
 shape = SubResource("RectangleShape2D_clhir")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="mesa2"]
-position = Vector2(101, 296)
+position = Vector2(34, 304)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6kyg3")
 
@@ -1212,3 +1346,6 @@ horizontal_alignment = 2
 [connection signal="pressed" from="boss/bossDialog/next" to="boss/bossDialog" method="_on_next_pressed"]
 [connection signal="body_entered" from="boss/Area2D" to="boss" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="boss/Area2D" to="boss" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="punky/Area2D" to="punky" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="punky/Area2D" to="punky" method="_on_area_2d_body_exited"]
+[connection signal="pressed" from="punky/Label/next" to="punky" method="_on_next_pressed"]
