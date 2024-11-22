@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ccqxecech1tg4"]
+[gd_scene load_steps=33 format=3 uid="uid://ccqxecech1tg4"]
 
 [ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="1_0fsc8"]
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_auxw2"]
@@ -65,28 +65,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_63cum"]
-atlas = ExtResource("6_ajcga")
-region = Rect2(0, 0, 1200, 1200)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_lxxf2"]
 atlas = ExtResource("4_1yeq8")
 region = Rect2(0, 0, 1200, 1200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6vjt4"]
-atlas = ExtResource("6_ajcga")
-region = Rect2(0, 0, 1200, 1200)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_2u057"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_63cum")
-}],
-"loop": true,
-"name": &"normal",
-"speed": 7.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_1yeq8")
@@ -133,9 +117,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("9_3dta6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6vjt4")
 }],
 "loop": true,
 "name": &"talk",
@@ -207,7 +188,9 @@ animation = &"bye bye"
 position = Vector2(694, -26)
 scale = Vector2(0.365, 0.374167)
 sprite_frames = SubResource("SpriteFrames_2u057")
-animation = &"normal"
+animation = &"talk"
+frame = 2
+frame_progress = 0.29869
 
 [node name="Diags" type="Sprite2D" parent="."]
 position = Vector2(24, 193)
@@ -226,10 +209,10 @@ text = "this is what i do to rats
 "
 
 [node name="back" type="Button" parent="."]
-offset_left = -91.0
-offset_top = 218.0
-offset_right = 156.0
-offset_bottom = 275.0
+offset_left = 283.0
+offset_top = 221.0
+offset_right = 519.0
+offset_bottom = 278.0
 theme_override_colors/font_hover_pressed_color = Color(0.733002, 3.62184e-06, 0, 1)
 theme_override_colors/font_hover_color = Color(0.717647, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.67451, 0, 0, 1)
@@ -246,7 +229,7 @@ theme_override_styles/normal = SubResource("StyleBoxLine_cykfc")
 text = "return to menu"
 
 [node name="Gameover" type="Sprite2D" parent="."]
-position = Vector2(19, -109)
+position = Vector2(8, -186)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("18_ijfjt")
 

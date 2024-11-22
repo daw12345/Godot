@@ -1,5 +1,6 @@
-res://scripts/game_over.gd
-res://scenes/gameOver.tscn
 res://scenes/Hall.tscn
+res://scripts/game_over.gd
 res://scenes/Contract.tscn
+res://scenes/gameOver.tscn
 res://scenes/betMenu.tscn
+res://scripts/lady_script.gd
