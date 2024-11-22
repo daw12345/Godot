@@ -8,7 +8,7 @@ var bet_square_map : Dictionary = {}  # Diccionario para mapear betSquares a IDs
 # Referencias a nodos del menú
 @onready var balance_label = $money
 @onready var confirm_button = $Confirm
-
+@onready var cancel: Button = $back
 # Referencias a los betSquares (LineEdit) para cada perro
 @onready var dog_bet_squares = [
 	$dog1/betSquare1,  # betSquare1 es el LineEdit
@@ -23,6 +23,7 @@ var bet_square_map : Dictionary = {}  # Diccionario para mapear betSquares a IDs
 
 func _ready():
 	_update_balance_label()
+	GameData.player_position = Vector2(42, -50)
 
 	# Inicializar apuestas para cada perro, empezando desde el perro 1 hasta el perro 8
 	for i in range(dog_bet_squares.size()):
@@ -101,3 +102,8 @@ func _on_confirm_button_pressed():
 	# Cambiar a la escena de carrera
 	print("Cambiando a la escena de carrera...")
 	get_tree().change_scene_to_file("res://scenes/race.tscn")
+
+
+func _on_back_pressed() -> void:
+	
+	get_tree().change_scene_to_file("res://scenes/Hall.tscn")

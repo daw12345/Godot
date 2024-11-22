@@ -1,5 +1,6 @@
-Button
+StaticBody2D
 Label
+Button
 AnimatedSprite2D
 Camera2D
 Control

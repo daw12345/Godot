@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://hnvf2p07ionk"]
+[gd_scene load_steps=20 format=3 uid="uid://hnvf2p07ionk"]
 
 [ext_resource type="Script" path="res://scripts/bet_menu.gd" id="1_53s50"]
 [ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="2_qnwik"]
@@ -20,6 +20,27 @@
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_mdmmk"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_g7lrt"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_x5f0g"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_8nwev"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_7omdl"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_2fhd2"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_jqfxp"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_7ca2l"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_s4mkb"]
+color = Color(0, 0, 0, 0)
 
 [node name="BetMenu" type="Node2D"]
 script = ExtResource("1_53s50")
@@ -289,3 +310,26 @@ text = "confirm"
 position = Vector2(-1104, -640)
 anchor_mode = 0
 zoom = Vector2(0.5, 0.5)
+
+[node name="back" type="Button" parent="."]
+offset_left = -384.0
+offset_top = 376.0
+offset_right = -137.0
+offset_bottom = 433.0
+theme_override_colors/font_hover_pressed_color = Color(0.733002, 3.62184e-06, 0, 1)
+theme_override_colors/font_hover_color = Color(0.717647, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.67451, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.670588, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jmkel")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxLine_x5f0g")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxLine_8nwev")
+theme_override_styles/hover_pressed = SubResource("StyleBoxLine_7omdl")
+theme_override_styles/hover = SubResource("StyleBoxLine_2fhd2")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxLine_jqfxp")
+theme_override_styles/pressed = SubResource("StyleBoxLine_7ca2l")
+theme_override_styles/normal = SubResource("StyleBoxLine_s4mkb")
+text = "cancel
+"
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

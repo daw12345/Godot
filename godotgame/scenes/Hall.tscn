@@ -1,7 +1,8 @@
-[gd_scene load_steps=149 format=3 uid="uid://drms2uu8f01u8"]
+[gd_scene load_steps=153 format=3 uid="uid://drms2uu8f01u8"]
 
 [ext_resource type="Texture2D" uid="uid://bjk8qn8egtibx" path="res://assets/bh3.png" id="1_agol5"]
 [ext_resource type="Texture2D" uid="uid://csn1ca1ou6k4a" path="res://assets/shark.png" id="1_epf0i"]
+[ext_resource type="Script" path="res://scripts/hall_script.gd" id="1_gnvs2"]
 [ext_resource type="Texture2D" uid="uid://2gl0vn0q0c8m" path="res://assets/bh2.png" id="2_xdqcv"]
 [ext_resource type="Texture2D" uid="uid://65bhplxmo6er" path="res://assets/bh1.png" id="3_d47ru"]
 [ext_resource type="Script" path="res://scripts/shark_move.gd" id="3_kj5h5"]
@@ -36,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://cn5yoff7ahwwd" path="res://assets/sprite_05.png" id="32_4djjg"]
 [ext_resource type="Texture2D" uid="uid://cfp8dkpcehoht" path="res://assets/sprite_06.png" id="33_5wjqk"]
 [ext_resource type="Texture2D" uid="uid://bod6oyigs8cw8" path="res://assets/sprite_07.png" id="34_7fr4g"]
+[ext_resource type="Script" path="res://scripts/boss_coll.gd" id="36_wnnsl"]
 [ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="37_1ab6y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsvqn"]
@@ -377,8 +379,6 @@ b = Vector2(31.2701, -4.70967)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eh07t"]
 size = Vector2(20, 246)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_t5efn"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3isuu"]
 size = Vector2(29, 23.5)
 
@@ -708,6 +708,8 @@ color = Color(0, 0, 0, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_855ex"]
 size = Vector2(25, 71)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_t5efn"]
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p7t4r"]
 load_path = "res://.godot/imported/sheetOfProta.png-4ffac5f04717b1f223e74e135e9d4eed.ctex"
 
@@ -852,7 +854,14 @@ size = Vector2(70, 205)
 radius = 5.0
 height = 66.0
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_f8wsw"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_tlmsp"]
+color = Color(0, 0, 0, 0)
+
 [node name="Hall" type="Node2D"]
+script = ExtResource("1_gnvs2")
 
 [node name="Bh3" type="Sprite2D" parent="."]
 position = Vector2(-32, 80)
@@ -1031,10 +1040,6 @@ shape = SubResource("SegmentShape2D_fh2lp")
 position = Vector2(-311, 224)
 shape = SubResource("RectangleShape2D_eh07t")
 
-[node name="boss" type="CollisionShape2D" parent="front"]
-position = Vector2(-157, 111)
-shape = SubResource("CircleShape2D_t5efn")
-
 [node name="screen2" type="Node2D" parent="."]
 script = ExtResource("9_5nea4")
 
@@ -1088,8 +1093,8 @@ offset_bottom = 67.0
 theme_override_fonts/font = ExtResource("10_03kvn")
 theme_override_font_sizes/font_size = 5
 theme_override_styles/normal = SubResource("StyleBoxLine_332d7")
-text = "listen up, kid.  you want my money, 
-you play by my rules"
+text = "hey kid, you’re lucky i’m feeling generous today
+take 20 grand, but don’t play me"
 
 [node name="next" type="Button" parent="boss/bossDialog"]
 process_mode = 3
@@ -1120,6 +1125,13 @@ monitorable = false
 position = Vector2(-158, 140)
 shape = SubResource("RectangleShape2D_855ex")
 debug_color = Color(0.900967, 0.211568, 0.573656, 0.42)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="boss"]
+
+[node name="bossColl" type="CollisionShape2D" parent="boss/StaticBody2D"]
+position = Vector2(-157, 111)
+shape = SubResource("CircleShape2D_t5efn")
+script = ExtResource("36_wnnsl")
 
 [node name="prota" type="CharacterBody2D" parent="."]
 script = ExtResource("9_02d4n")
@@ -1166,6 +1178,32 @@ shape = SubResource("CapsuleShape2D_6kyg3")
 position = Vector2(194, 152)
 scale = Vector2(0.39375, 1)
 texture = ExtResource("37_1ab6y")
+
+[node name="interface" type="Label" parent="."]
+offset_left = 136.0
+offset_top = 49.0
+offset_right = 199.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("10_03kvn")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxLine_f8wsw")
+text = "amount:
+
+"
+
+[node name="guita" type="Label" parent="interface"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 19.0
+offset_right = 66.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.822024, 0.605885, 7.70092e-07, 1)
+theme_override_fonts/font = ExtResource("10_03kvn")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxLine_tlmsp")
+text = "$
+"
+horizontal_alignment = 2
 
 [connection signal="body_entered" from="Lady/AreaLady" to="Lady" method="_on_area_lady_body_entered"]
 [connection signal="body_exited" from="Lady/AreaLady" to="Lady" method="_on_area_lady_body_exited"]

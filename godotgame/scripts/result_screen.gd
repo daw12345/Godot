@@ -106,9 +106,17 @@ func total_profit_text(profit):
 
 
 func _on_continue_pressed() -> void:
+	if GameData.drink_overdose >= 0:
+		GameData.drink_overdose -= 5
+		
+		
 	if GameData.gameOver_On and GameData.balance <=0:
 		get_tree().change_scene_to_file("res://scenes/gameOver.tscn")
 		print("GameOver")
+		
+	if GameData.balance >=20000:
+		get_tree().change_scene_to_file("res://scenes/win.tscn")
+		print("Winner")
 
 	print("Continuar presionado. Cambiando de escena...")
 	get_tree().change_scene_to_file("res://scenes/Hall.tscn")

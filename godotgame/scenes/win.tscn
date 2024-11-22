@@ -1,0 +1,167 @@
+[gd_scene load_steps=26 format=3 uid="uid://etw4tgr64h4l"]
+
+[ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="1_3o8o6"]
+[ext_resource type="Script" path="res://scripts/win_script.gd" id="1_ap8jg"]
+[ext_resource type="Texture2D" uid="uid://cxudnhqr6orl7" path="res://assets/win.png" id="2_b6hgw"]
+[ext_resource type="Texture2D" uid="uid://d2hpq6t7qs50m" path="res://assets/lady.png" id="3_mgpj1"]
+[ext_resource type="Texture2D" uid="uid://bpuprl35cxoq6" path="res://assets/sheetOfProta.png" id="4_qm0y5"]
+[ext_resource type="Texture2D" uid="uid://dpcxt4rnc438d" path="res://assets/emoji.png" id="5_uctvk"]
+[ext_resource type="FontFile" uid="uid://4lhe6j1fp84n" path="res://assets/8-bit-hud.ttf" id="6_1ny5n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa7b8"]
+atlas = ExtResource("3_mgpj1")
+region = Rect2(6000, 0, 1000, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w80lk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa7b8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owxpv"]
+atlas = ExtResource("4_qm0y5")
+region = Rect2(5000, 0, 1000, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_csc41"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owxpv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2i3u"]
+atlas = ExtResource("5_uctvk")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohxf4"]
+atlas = ExtResource("5_uctvk")
+region = Rect2(300, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvmty"]
+atlas = ExtResource("5_uctvk")
+region = Rect2(600, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nxip"]
+atlas = ExtResource("5_uctvk")
+region = Rect2(900, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww1xk"]
+atlas = ExtResource("5_uctvk")
+region = Rect2(1200, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykhua"]
+atlas = ExtResource("5_uctvk")
+region = Rect2(1500, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86t2t"]
+atlas = ExtResource("5_uctvk")
+region = Rect2(1800, 0, 300, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eiolv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2i3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohxf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvmty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nxip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ww1xk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykhua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86t2t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_nymfu"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_28owq"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ihhyo"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_05hnf"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_x0ve5"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_w5sl1"]
+color = Color(0, 0, 0, 0)
+
+[node name="Win" type="Node2D"]
+script = ExtResource("1_ap8jg")
+
+[node name="GenericBg" type="Sprite2D" parent="."]
+position = Vector2(587, 325)
+scale = Vector2(4.14687, 2.33437)
+texture = ExtResource("1_3o8o6")
+
+[node name="Win" type="Sprite2D" parent="."]
+position = Vector2(559, 163)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_b6hgw")
+
+[node name="lady" type="AnimatedSprite2D" parent="."]
+position = Vector2(481, 408)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_w80lk")
+
+[node name="prota" type="AnimatedSprite2D" parent="."]
+position = Vector2(672, 401)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_csc41")
+
+[node name="<3" type="AnimatedSprite2D" parent="."]
+position = Vector2(565, 274)
+scale = Vector2(0.226667, 0.23)
+sprite_frames = SubResource("SpriteFrames_eiolv")
+frame_progress = 0.259054
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(589, 363)
+
+[node name="end" type="Button" parent="."]
+offset_left = 453.0
+offset_top = 607.0
+offset_right = 708.0
+offset_bottom = 642.0
+theme_override_colors/font_disabled_color = Color(0.666667, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.647059, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.627451, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.654902, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.635294, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_1ny5n")
+theme_override_styles/focus = SubResource("StyleBoxLine_nymfu")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxLine_28owq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxLine_ihhyo")
+theme_override_styles/hover = SubResource("StyleBoxLine_05hnf")
+theme_override_styles/pressed = SubResource("StyleBoxLine_x0ve5")
+theme_override_styles/normal = SubResource("StyleBoxLine_w5sl1")
+text = "return to menu"
+
+[connection signal="pressed" from="end" to="." method="_on_end_pressed"]

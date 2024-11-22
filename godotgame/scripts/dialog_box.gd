@@ -35,6 +35,8 @@ func _on_option1_pressed():
 	# Acción al presionar la opción 1 (apostar)
 	if GameData.balance >= 20:
 		GameData.balance -= 20
+		GameData.drink_overdose += 1
+		GameData.her_love += 1
 		print("Consumicion -20, el saldo ahora es: " + str(GameData.balance))
 		dialog_text.text ="It's $20, darling
 		 See you!" 

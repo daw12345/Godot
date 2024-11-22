@@ -13,7 +13,11 @@ var bet_amounts : Dictionary = {}  # Apuestas por perro {perro_id: cantidad_apos
 var payout_rates : Array = [1.5, 3.0, 3.0, 2.0, 2.0, 3.0, 5.0, 15.0]  # Multiplicadores por cada perro
 var boss_hide: bool = true
 var gameOver_On: bool = false
+var drink_overdose: int = 0
+var her_love = 0
+
 # Resultados de la carrera
-# Lista que contiene diccionarios con información sobre los perros que participaron en la carrera
-# Cada elemento es: { "id": dog_id, "name": dog_name, "position": position }
-var race_results : Array = []
+var race_results : Array = []  # Lista con los resultados de la carrera
+
+# Variable global para la posición del personaje
+var player_position : Vector2 = Vector2(0, 0)  # Coordenadas (X, Y) del personaje

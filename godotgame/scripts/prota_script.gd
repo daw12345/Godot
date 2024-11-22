@@ -7,6 +7,10 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $protaSprites
 
 func _ready():
+	
+	global_position = GameData.player_position  # Establece la posición inicial del personaje desde GameData
+	print(global_position)
+	
 	# Establecer la animación "idle" al inicio
 	animated_sprite.play("idle")
 

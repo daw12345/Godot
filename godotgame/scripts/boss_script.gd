@@ -12,16 +12,16 @@ var dialog_texts: Array = []  # Lista de textos del diálogo
 
 func _ready() -> void:
 	# Establecemos los textos del diálogo
-	dialog_texts = [
-		"don’t even think about 
-		crossing me
-		i don’t do second chances",
-		"pay up on time, or you’ll regret ever meeting me",
-		"you’re lucky i’m feeling generous don’t make me 
-		regret it",
-		"HA HA HA HA"
-	]
-	
+	dialog_texts = ["hey kid, you’re lucky i’m feeling generous today. 
+	take 20 grand, but don’t play me", 
+ "don’t make me regret this, alright? the last guy 
+who tried that... well, he’s not around anymore", 
+ "look, just make sure you don’t screw this up 
+i don’t do second chances, capisce", 
+ "what are you gonna do with all that cash? well, 
+i guess it’s none of my business", 
+ "ha ha ha ha, cheer up, kid, smile, life’s too short"]
+
 	# Aseguramos que el botón 'Next' esté habilitado
 	next.disabled = false
 	next.connect("pressed", Callable(self, "_on_next_pressed"))

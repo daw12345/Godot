@@ -1,0 +1,143 @@
+[gd_scene load_steps=20 format=3 uid="uid://qofvaml2e146"]
+
+[ext_resource type="Script" path="res://scripts/game_over_2_script.gd" id="1_hj28b"]
+[ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="2_jb5fl"]
+[ext_resource type="FontFile" uid="uid://4lhe6j1fp84n" path="res://assets/8-bit-hud.ttf" id="3_nfc46"]
+[ext_resource type="Texture2D" uid="uid://bqm6n1r5e72in" path="res://assets/gameover.png" id="4_lmxpc"]
+[ext_resource type="Texture2D" uid="uid://bpuprl35cxoq6" path="res://assets/sheetOfProta.png" id="5_t3xo2"]
+[ext_resource type="Texture2D" uid="uid://j3niuwwymm7t" path="res://assets/diags.png" id="6_3ud8e"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_df1mi"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_025ju"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_mo81r"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_4s02b"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_u2np8"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_scxle"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_7o0ul"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1f4f"]
+atlas = ExtResource("5_t3xo2")
+region = Rect2(9000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asiin"]
+atlas = ExtResource("5_t3xo2")
+region = Rect2(10000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7q8y1"]
+atlas = ExtResource("5_t3xo2")
+region = Rect2(5000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i84k"]
+atlas = ExtResource("5_t3xo2")
+region = Rect2(5000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk385"]
+atlas = ExtResource("5_t3xo2")
+region = Rect2(6000, 0, 1000, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xf82j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1f4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asiin")
+}],
+"loop": false,
+"name": &"bye",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7q8y1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i84k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk385")
+}],
+"loop": false,
+"name": &"oh",
+"speed": 5.0
+}]
+
+[node name="GameOver2" type="Node2D"]
+script = ExtResource("1_hj28b")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-100.499, 32)
+
+[node name="GenericBg" type="Sprite2D" parent="."]
+position = Vector2(-71.4992, 24)
+scale = Vector2(4.31563, 2.56875)
+texture = ExtResource("2_jb5fl")
+
+[node name="back" type="Button" parent="."]
+offset_left = -165.0
+offset_top = 250.0
+offset_right = 82.0
+offset_bottom = 307.0
+theme_override_colors/font_hover_pressed_color = Color(0.733002, 3.62184e-06, 0, 1)
+theme_override_colors/font_hover_color = Color(0.717647, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.67451, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.670588, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nfc46")
+theme_override_font_sizes/font_size = 0
+theme_override_styles/focus = SubResource("StyleBoxLine_df1mi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxLine_025ju")
+theme_override_styles/hover_pressed = SubResource("StyleBoxLine_mo81r")
+theme_override_styles/hover = SubResource("StyleBoxLine_4s02b")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxLine_u2np8")
+theme_override_styles/pressed = SubResource("StyleBoxLine_scxle")
+theme_override_styles/normal = SubResource("StyleBoxLine_7o0ul")
+text = "return to menu"
+
+[node name="Gameover" type="Sprite2D" parent="."]
+position = Vector2(-47, -81)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_lmxpc")
+
+[node name="prota" type="AnimatedSprite2D" parent="."]
+position = Vector2(-52, 45)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_xf82j")
+animation = &"oh"
+
+[node name="Diags" type="Sprite2D" parent="."]
+position = Vector2(-40, 184)
+scale = Vector2(0.1354, 0.1344)
+texture = ExtResource("6_3ud8e")
+
+[node name="blabla" type="Label" parent="Diags"]
+offset_left = -1325.0
+offset_top = -255.0
+offset_right = 1345.0
+offset_bottom = 223.0
+theme_override_fonts/font = ExtResource("3_nfc46")
+theme_override_font_sizes/font_size = 100
+text = "Oh no, I think I've had
+ too much to drink
+"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
