@@ -1,3 +1,5 @@
+res://scenes/boss_room.tscn
+res://scripts/boss_script.gd
 res://scenes/Hall.tscn
 res://scenes/Contract.tscn
 res://scenes/betMenu.tscn
@@ -5,3 +7,8 @@ res://scenes/win.tscn
 res://scenes/race.tscn
 res://scenes/gameOver.tscn
 res://scenes/gameOver2.tscn
+res://scenes/Dog1.tscn
+res://scripts/contract_script.gd
+res://scripts/boss.gd
+res://scripts/raceManager.gd
+res://scripts/raceCam.gd

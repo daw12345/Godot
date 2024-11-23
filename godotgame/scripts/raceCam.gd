@@ -11,12 +11,13 @@ var current_dog_index = 0  # Índice del perro que estamos siguiendo
 
 # Propiedades de zoom para cada modo
 var global_zoom = Vector2(0.5, 0.5)  # Zoom más alejado para la vista global
-var leader_zoom = Vector2(1.0, 1.0)  # Zoom normal para la vista del líder
+var leader_zoom = Vector2(0.7, 0.7)  # Zoom normal para la vista del líder
 var follow_dog_zoom = Vector2(1.0, 1.0)  # Zoom normal para la vista del perro
 
 # Desplazamiento de la cámara en la vista global
 var global_camera_offset = 0.0  # Desplazamiento horizontal en la vista global
-var global_camera_speed = 300.0  # Velocidad de movimiento de la cámara
+var global_camera_speed = 600.0  # Velocidad de movimiento de la cámara
+var camera_y_offset = -50.0  # Desplazamiento vertical en el eje Y para elevar la cámara
 
 func _ready():
 	# Limpiar la lista de perros antes de llenarla
@@ -68,19 +69,19 @@ func _process(delta):
 			# Lógica para la vista global
 			if dogs.size() > 0:
 				var global_center = Vector2(global_camera_offset, 0)  # Desplazamos la cámara a lo largo del eje X
-				position = global_center  # Coloca la cámara en el nuevo centro de la escena
+				position = global_center + Vector2(0, camera_y_offset)  # Ajuste en el eje Y
 
 		CameraMode.LEADER_VIEW:
 			# Lógica para seguir al perro líder (el que ha avanzado más en la carrera)
 			if dogs.size() > 0:
 				var leader_dog = get_leader_dog()  # Buscar el perro líder
-				position = leader_dog.position  # La cámara sigue al líder
+				position = leader_dog.position + Vector2(0, camera_y_offset)  # Ajuste en el eje Y
 
 		CameraMode.FOLLOW_DOG:
 			# Lógica para seguir un perro específico según current_dog_index
 			if dogs.size() > 0 and current_dog_index < dogs.size():
 				var dog_to_follow = dogs[current_dog_index]  # Perro a seguir
-				position = dog_to_follow.position  # La cámara sigue al perro seleccionado
+				position = dog_to_follow.position + Vector2(0, camera_y_offset)  # Ajuste en el eje Y
 
 	# Aplicar el zoom apropiado dependiendo del modo
 	update_camera_zoom()

@@ -77,6 +77,7 @@ func _on_done_pressed() -> void:
 	GameData.gameOver_On = true
 	GameData.balance=1000
 	GameData.boss_hide=false
-	GameData.player_position = Vector2(0, 0)
+	GameData.player_position = Vector2(-185,-35)
 	print("Button pressed, changing scene...")
 	get_tree().change_scene_to_file("res://scenes/Hall.tscn")
+	

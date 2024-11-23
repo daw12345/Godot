@@ -16,8 +16,7 @@ func _ready() -> void:
 	take 20 grand, but don’t play me", 
  "don’t make me regret this, alright? the last guy 
 who tried that... well, he’s not around anymore", 
- "look, just make sure you don’t screw this up 
-i don’t do second chances, capisce", 
+ "if you play me, you’ll end up chum for my sharks",
  "what are you gonna do with all that cash? well, 
 i guess it’s none of my business", 
  "ha ha ha ha, cheer up, kid, smile, life’s too short"]

@@ -5,10 +5,11 @@ var is_in_dialog_zone: bool = false
 var is_dialog_active: bool = false
 @onready var panel: Panel = $bossDialog
 @onready var boss: AnimatedSprite2D = $bossAnimation
+@onready var xc: Sprite2D = $Area2D/Xc
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	
+	xc.visible = false
 	panel.visible=false
 	boss.play("idle")
 	
@@ -30,10 +31,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "prota":  # Ajusta según el nombre del nodo del jaugador
 		is_in_dialog_zone = true
 		print("entro al boss")
-		
-		
+		xc.visible = true
+		await get_tree().create_timer(1.0).timeout
+		xc.visible = false
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "prota":  # Ajusta según el nombre del nodo del jugador
 		is_in_dialog_zone = false
 		print("salio del boss")
+		xc.visible = false

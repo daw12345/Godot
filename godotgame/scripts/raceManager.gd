@@ -1,7 +1,10 @@
 extends Node
 
+@onready var fondo1 : AnimatedSprite2D = $"Race2(1)"
+@onready var fondo2 : AnimatedSprite2D = $"Race3(1)"
+
 var dogs = []  # Lista de perros en la carrera
-var race_distance = 3000  # Distancia de la carrera (en píxeles)
+var race_distance = 9000  # Distancia de la carrera (en píxeles)
 var race_timer : Timer  # Temporizador para iniciar la carrera
 var dogs_finished = 0  # Número de perros que han llegado a la meta
 var race_results = []  # Lista para almacenar los perros que han llegado a la meta
@@ -10,7 +13,10 @@ var race_ended = false  # Bandera para asegurarse de que la carrera termine solo
 func _ready():
 	# Obtener todos los perros en la escena (perros deben estar en el grupo "dogs")
 	dogs = get_tree().get_nodes_in_group("dogs")
-
+	
+	
+	fondo1.play("default")
+	fondo2.play("default")
 	# Asignar IDs únicos a cada perro basado en el nombre del AnimatedSprite
 	for dog in dogs:
 		var dog_name = dog.name  # El nombre de cada perro (Dog1, Dog2, etc.)

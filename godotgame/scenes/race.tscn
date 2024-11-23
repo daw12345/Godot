@@ -1,11 +1,15 @@
-[gd_scene load_steps=112 format=3 uid="uid://by5g2kx2hdwyf"]
+[gd_scene load_steps=125 format=3 uid="uid://by5g2kx2hdwyf"]
 
 [ext_resource type="Script" path="res://scripts/raceManager.gd" id="1_oct4k"]
 [ext_resource type="PackedScene" uid="uid://du0een4ihhkf" path="res://scenes/Dog1.tscn" id="1_y456d"]
 [ext_resource type="Texture2D" uid="uid://ree3tpbj7ji6" path="res://assets/idle(1).png" id="2_8jfna"]
 [ext_resource type="Texture2D" uid="uid://dymvf4njb1144" path="res://assets/lazy(4).png" id="3_3r54t"]
+[ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="3_kq1k3"]
+[ext_resource type="Texture2D" uid="uid://6y1tuxcifhpi" path="res://assets/race1(1).png" id="4_3o3lq"]
 [ext_resource type="Texture2D" uid="uid://dcb6mhy31v8w6" path="res://assets/run dog(2)(2).png" id="4_l5eqw"]
+[ext_resource type="Texture2D" uid="uid://fkic10megm4f" path="res://assets/race2(1).png" id="5_4xdux"]
 [ext_resource type="Script" path="res://scripts/DogClass.gd" id="5_fbxqh"]
+[ext_resource type="Texture2D" uid="uid://byypi23offwuo" path="res://assets/race3(1).png" id="6_dofaq"]
 [ext_resource type="Script" path="res://scripts/raceCam.gd" id="6_jss50"]
 [ext_resource type="Resource" uid="uid://ddorq3kxk0k7h" path="res://DogParams/Dog1Params.tres" id="7_an78a"]
 [ext_resource type="PackedScene" uid="uid://dojtcici7i3wp" path="res://scenes/Dog2.tscn" id="8_cbpda"]
@@ -15,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://b3uc1wni7t0gj" path="res://assets/run (3).png" id="11_s0ucg"]
 [ext_resource type="Texture2D" uid="uid://jwwpepic5vnh" path="res://assets/idle (2) (4).png" id="12_p5f3q"]
 [ext_resource type="Texture2D" uid="uid://oc525dr6u7gg" path="res://assets/lazy (2) (4).png" id="13_5wqqg"]
+[ext_resource type="Texture2D" uid="uid://dociuqxdoaqt8" path="res://assets/shadow.png" id="13_qtibv"]
 [ext_resource type="Resource" uid="uid://dgjbrkajeukd4" path="res://DogParams/Dog3Params.tres" id="14_ape4j"]
 [ext_resource type="Texture2D" uid="uid://d2tmhmix27vvx" path="res://assets/run (2) (4).png" id="14_im1rp"]
 [ext_resource type="Texture2D" uid="uid://cg6778gbf3xp0" path="res://assets/idle (2) (1).png" id="15_bstn8"]
@@ -34,6 +39,50 @@
 [ext_resource type="Resource" uid="uid://dl7vuqlnk6arw" path="res://DogParams/Dog6Params.tres" id="26_odm18"]
 [ext_resource type="Resource" uid="uid://besdq40dilhti" path="res://DogParams/Dog7Params.tres" id="30_0fsei"]
 [ext_resource type="Resource" uid="uid://ddg1xvmdn8pch" path="res://DogParams/Dog8Params.tres" id="34_3qql0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ady45"]
+atlas = ExtResource("5_4xdux")
+region = Rect2(0, 0, 13440, 4190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xdvi"]
+atlas = ExtResource("5_4xdux")
+region = Rect2(13440, 0, 13440, 4190)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w48hj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ady45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xdvi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uqxc"]
+atlas = ExtResource("6_dofaq")
+region = Rect2(0, 0, 6810, 3610)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4603"]
+atlas = ExtResource("6_dofaq")
+region = Rect2(6810, 0, 6810, 3610)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s0kw3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uqxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4603")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o62d3"]
 atlas = ExtResource("2_8jfna")
@@ -651,66 +700,184 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8l70"]
+atlas = ExtResource("6_dofaq")
+region = Rect2(13620, 0, 6810, 3610)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_teelq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8l70")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Race" type="Node2D"]
 script = ExtResource("1_oct4k")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("6_jss50")
+[node name="GenericBg2" type="Sprite2D" parent="."]
+position = Vector2(4268, -613)
+scale = Vector2(36.8219, 10.6625)
+texture = ExtResource("3_kq1k3")
+
+[node name="Race1(1)" type="Sprite2D" parent="."]
+position = Vector2(1431, -182)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_3o3lq")
+
+[node name="Race2(1)" type="AnimatedSprite2D" parent="."]
+position = Vector2(4904, -255)
+scale = Vector2(0.2, 0.294093)
+sprite_frames = SubResource("SpriteFrames_w48hj")
+frame_progress = 0.675895
+
+[node name="Race3(1)" type="AnimatedSprite2D" parent="."]
+position = Vector2(7899, -274)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_s0kw3")
+frame_progress = 0.388945
 
 [node name="Dog1" parent="." groups=["dogs"] instance=ExtResource("1_y456d")]
-position = Vector2(-456, -271)
+z_index = 1
+position = Vector2(-449, -316)
 sprite_frames = SubResource("SpriteFrames_16v84")
 animation = &"lazy"
 script = ExtResource("5_fbxqh")
 dog_parameters = ExtResource("7_an78a")
 
+[node name="Shadow" type="Sprite2D" parent="Dog1"]
+z_index = -1
+position = Vector2(1.99997, 3.05176e-05)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("13_qtibv")
+
 [node name="Dog2" parent="." instance=ExtResource("8_cbpda")]
-position = Vector2(-454, -198)
+z_index = 1
+position = Vector2(-452, -250)
 dog_parameters = ExtResource("10_31f1r")
 
+[node name="Shadow" type="Sprite2D" parent="Dog2"]
+z_index = -1
+position = Vector2(1.99997, 3.05176e-05)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("13_qtibv")
+
 [node name="Dog3" type="AnimatedSprite2D" parent="." groups=["dogs"]]
-position = Vector2(-438, -113)
+z_index = 1
+position = Vector2(-444, -182)
 sprite_frames = SubResource("SpriteFrames_abiew")
 animation = &"run"
 script = ExtResource("5_fbxqh")
 dog_parameters = ExtResource("14_ape4j")
 
+[node name="Shadow" type="Sprite2D" parent="Dog3"]
+z_index = -1
+position = Vector2(1.99997, 3.05176e-05)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("13_qtibv")
+
 [node name="Dog4" type="AnimatedSprite2D" parent="." groups=["dogs"]]
-position = Vector2(-439, -37)
+z_index = 1
+position = Vector2(-443, -114)
 sprite_frames = SubResource("SpriteFrames_k0pla")
 animation = &"run"
 frame_progress = 0.714545
 script = ExtResource("5_fbxqh")
 dog_parameters = ExtResource("18_hbnnw")
 
+[node name="Shadow" type="Sprite2D" parent="Dog4"]
+z_index = -1
+position = Vector2(1.99997, 3.05176e-05)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("13_qtibv")
+
 [node name="Dog5" type="AnimatedSprite2D" parent="." groups=["dogs"]]
-position = Vector2(-442, 44)
+z_index = 1
+position = Vector2(-442, -49)
 sprite_frames = SubResource("SpriteFrames_s8l6t")
 animation = &"run"
 frame_progress = 0.597348
 script = ExtResource("5_fbxqh")
 dog_parameters = ExtResource("22_qy31m")
 
+[node name="Shadow" type="Sprite2D" parent="Dog5"]
+z_index = -1
+position = Vector2(1.99997, 3.05176e-05)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("13_qtibv")
+
 [node name="Dog6" type="AnimatedSprite2D" parent="." groups=["dogs"]]
-position = Vector2(-444, 122)
+z_index = 1
+position = Vector2(-447, 20)
 sprite_frames = SubResource("SpriteFrames_gf0rt")
 animation = &"run"
 frame_progress = 0.456546
 script = ExtResource("5_fbxqh")
 dog_parameters = ExtResource("26_odm18")
 
+[node name="Shadow" type="Sprite2D" parent="Dog6"]
+z_index = -1
+position = Vector2(1.99997, 3.05176e-05)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("13_qtibv")
+
 [node name="Dog7" type="AnimatedSprite2D" parent="." groups=["dogs"]]
-position = Vector2(-445, 196)
+z_index = 1
+position = Vector2(-454, 86)
 sprite_frames = SubResource("SpriteFrames_rpnmf")
 animation = &"idle"
 frame_progress = 0.475195
 script = ExtResource("5_fbxqh")
 dog_parameters = ExtResource("30_0fsei")
 
+[node name="Shadow" type="Sprite2D" parent="Dog7"]
+z_index = -1
+position = Vector2(1.99997, 3.05176e-05)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("13_qtibv")
+
 [node name="Dog8" type="AnimatedSprite2D" parent="." groups=["dogs"]]
-position = Vector2(-442, 267)
+z_index = 1
+position = Vector2(-445, 161)
 sprite_frames = SubResource("SpriteFrames_cxwda")
 animation = &"run"
 frame_progress = 0.0252739
 script = ExtResource("5_fbxqh")
 dog_parameters = ExtResource("34_3qql0")
+
+[node name="Shadow" type="Sprite2D" parent="Dog8"]
+z_index = -1
+position = Vector2(1.99997, 3.05176e-05)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("13_qtibv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
+position = Vector2(7900, -273)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_teelq")
+
+[node name="GenericBg3" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(4335, 597)
+scale = Vector2(31.375, 1.85625)
+texture = ExtResource("3_kq1k3")
+
+[node name="GenericBg4" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(3671.5, -292.5)
+scale = Vector2(1.23437, 5.45312)
+texture = ExtResource("3_kq1k3")
+
+[node name="GenericBg5" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(6387.5, -700.5)
+scale = Vector2(0.934375, 9.45312)
+texture = ExtResource("3_kq1k3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-26, -321)
+script = ExtResource("6_jss50")

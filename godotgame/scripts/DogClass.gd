@@ -94,7 +94,7 @@ func _process(delta):
 			else:
 				# Activar la parada con duración igual a fluctuation_burst_duration
 				top_speed = 0
-				stop_time_left = dog_params.fluctuation_burst_duration  # Duración igual a fluctuation_burst_duration
+				stop_time_left = min(dog_params.fluctuation_burst_duration, 10.0)  # Limitar el tiempo de parada a 10 segundos  # Duración igual a fluctuation_burst_duration
 				stop_triggered = true  # La parada ha sido activada
 				print(self.name, ": ¡Parada repentina! Duración de parada: ", stop_time_left)
 
