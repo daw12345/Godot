@@ -58,4 +58,4 @@ func _process(delta):
 		end.visible = true
 
 func _on_back_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/mainMenu.tscn")
+	get_tree().change_scene_to_file("res://scenes/TitleScreen.tscn")

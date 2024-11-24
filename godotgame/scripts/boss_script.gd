@@ -12,14 +12,22 @@ var dialog_texts: Array = []  # Lista de textos del diálogo
 
 func _ready() -> void:
 	# Establecemos los textos del diálogo
-	dialog_texts = ["hey kid, you’re lucky i’m feeling generous today. 
-	take 20 grand, but don’t play me", 
- "don’t make me regret this, alright? the last guy 
-who tried that... well, he’s not around anymore", 
- "if you play me, you’ll end up chum for my sharks",
- "what are you gonna do with all that cash? well, 
+	dialog_texts = ["hey kid, you’re lucky i’m feeling 
+	generous today. 
+you owe me 20 grand, 
+don’t play me", 
+ "don’t make me regret this, 
+alright? 
+the last guy who tried that... 
+well, he’s not around anymore", 
+ "if you play me, 
+you’ll end up chum for my sharks",
+ "what are you gonna do with 
+all that cash? well, 
 i guess it’s none of my business", 
- "ha ha ha ha, cheer up, kid, smile, life’s too short"]
+ "ha ha ha ha, cheer up kid, 
+smile, 
+life’s too short"]
 
 	# Aseguramos que el botón 'Next' esté habilitado
 	next.disabled = false

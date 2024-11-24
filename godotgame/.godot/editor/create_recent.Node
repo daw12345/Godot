@@ -1,13 +1,13 @@
 Label
-RichTextLabel
 AnimatedSprite2D
+Camera2D
+Button
+RichTextLabel
 Panel
 CollisionShape2D
 StaticBody2D
 Area2D
-Camera2D
 Sprite2D
-Button
 Node2D
 Control
 TextureRect

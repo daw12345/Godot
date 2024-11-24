@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://b12b802r0xq1h"]
+
+[ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="1_ogfg5"]
+[ext_resource type="Script" path="res://scripts/instructions.gd" id="1_r5apu"]
+[ext_resource type="FontFile" uid="uid://4lhe6j1fp84n" path="res://assets/8-bit-hud.ttf" id="2_54rwb"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_xodoa"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_vsw6a"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_mb856"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ngs15"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_wg3fn"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_lkk7n"]
+color = Color(0, 0, 0, 0)
+
+[node name="Instructions" type="Node2D"]
+script = ExtResource("1_r5apu")
+
+[node name="GenericBg" type="Sprite2D" parent="."]
+position = Vector2(665, 223)
+scale = Vector2(4.39375, 3.1375)
+texture = ExtResource("1_ogfg5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(662, 226)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 292.0
+offset_top = 32.0
+offset_right = 1153.0
+offset_bottom = 540.0
+theme_override_colors/font_color = Color(0.737696, 0.734381, 0, 0.776471)
+theme_override_fonts/font = ExtResource("2_54rwb")
+theme_override_font_sizes/font_size = 30
+text = "controls:
+
+move    -> W, A, S, D
+
+action -> K
+
+select -> mouse"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 916.0
+offset_top = 450.0
+offset_right = 1079.0
+offset_bottom = 510.0
+theme_override_colors/font_hover_pressed_color = Color(0.556863, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.599057, 1.43189e-06, 4.33177e-07, 1)
+theme_override_fonts/font = ExtResource("2_54rwb")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxLine_xodoa")
+theme_override_styles/disabled = SubResource("StyleBoxLine_vsw6a")
+theme_override_styles/hover_pressed = SubResource("StyleBoxLine_mb856")
+theme_override_styles/hover = SubResource("StyleBoxLine_ngs15")
+theme_override_styles/pressed = SubResource("StyleBoxLine_wg3fn")
+theme_override_styles/normal = SubResource("StyleBoxLine_lkk7n")
+text = "back"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

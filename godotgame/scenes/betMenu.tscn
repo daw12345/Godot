@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/bet_menu.gd" id="1_53s50"]
 [ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="2_qnwik"]
-[ext_resource type="Texture2D" uid="uid://c17hrikqkkose" path="res://assets/betBackground.png" id="2_y0gd5"]
+[ext_resource type="Texture2D" uid="uid://b37s28qvv4y1c" path="res://assets/betBackground(1).png" id="3_hvw07"]
 [ext_resource type="FontFile" uid="uid://4lhe6j1fp84n" path="res://assets/8-bit-hud.ttf" id="3_jmkel"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4t7tf"]
@@ -50,8 +50,10 @@ position = Vector2(36.9999, 23)
 scale = Vector2(8.9875, 5.8875)
 texture = ExtResource("2_qnwik")
 
-[node name="background" type="Sprite2D" parent="."]
-texture = ExtResource("2_y0gd5")
+[node name="BetBackground(1)" type="Sprite2D" parent="."]
+position = Vector2(24, 16)
+scale = Vector2(2.39833, 2.145)
+texture = ExtResource("3_hvw07")
 
 [node name="Title" type="Label" parent="."]
 offset_left = -384.0
@@ -71,7 +73,7 @@ offset_bottom = -120.0
 theme_override_colors/font_color = Color(0.984314, 0.988235, 0, 0.709804)
 theme_override_fonts/font = ExtResource("3_jmkel")
 theme_override_font_sizes/font_size = 20
-text = "dog2                             3/1"
+text = "pawdini (2)                  3/1"
 
 [node name="betSquare2" type="LineEdit" parent="dog2"]
 layout_mode = 0
@@ -96,7 +98,7 @@ offset_bottom = -184.0
 theme_override_colors/font_color = Color(0.984314, 0.988235, 0, 0.709804)
 theme_override_fonts/font = ExtResource("3_jmkel")
 theme_override_font_sizes/font_size = 20
-text = "dog1                              1/2"
+text = "biscuit bandit (1)       1/2"
 
 [node name="betSquare1" type="LineEdit" parent="dog1"]
 layout_mode = 1
@@ -122,7 +124,7 @@ offset_bottom = 8.0
 theme_override_colors/font_color = Color(0.984314, 0.988235, 0, 0.709804)
 theme_override_fonts/font = ExtResource("3_jmkel")
 theme_override_font_sizes/font_size = 20
-text = "dog4                             2/1"
+text = "woofinator (4)            2/1"
 
 [node name="betSquare4" type="LineEdit" parent="dog4"]
 layout_mode = 1
@@ -148,7 +150,7 @@ offset_bottom = -56.0
 theme_override_colors/font_color = Color(0.984314, 0.988235, 0, 0.709804)
 theme_override_fonts/font = ExtResource("3_jmkel")
 theme_override_font_sizes/font_size = 20
-text = "dog3                             3/1"
+text = "pupperoni (3)              3/1"
 
 [node name="betSquare3" type="LineEdit" parent="dog3"]
 layout_mode = 1
@@ -174,7 +176,7 @@ offset_bottom = 136.0
 theme_override_colors/font_color = Color(0.984314, 0.988235, 0, 0.709804)
 theme_override_fonts/font = ExtResource("3_jmkel")
 theme_override_font_sizes/font_size = 20
-text = "dog6                             3/1"
+text = "snooze button (6)       3/1"
 
 [node name="betSquare6" type="LineEdit" parent="dog6"]
 layout_mode = 1
@@ -199,7 +201,7 @@ offset_bottom = 72.0
 theme_override_colors/font_color = Color(0.984314, 0.988235, 0, 0.709804)
 theme_override_fonts/font = ExtResource("3_jmkel")
 theme_override_font_sizes/font_size = 20
-text = "dog5                             2/1"
+text = "cheddar chaser (5)    2/1"
 
 [node name="betSquare5" type="LineEdit" parent="dog5"]
 layout_mode = 1
@@ -225,7 +227,7 @@ offset_bottom = 200.0
 theme_override_colors/font_color = Color(0.984314, 0.988235, 0, 0.709804)
 theme_override_fonts/font = ExtResource("3_jmkel")
 theme_override_font_sizes/font_size = 20
-text = "dog7                             5/1"
+text = "fast foodie (7)           5/1"
 
 [node name="betSquare7" type="LineEdit" parent="dog7"]
 layout_mode = 1
@@ -251,7 +253,7 @@ offset_bottom = 264.0
 theme_override_colors/font_color = Color(0.984314, 0.988235, 0, 0.709804)
 theme_override_fonts/font = ExtResource("3_jmkel")
 theme_override_font_sizes/font_size = 20
-text = "dog8                            15/1"
+text = "lucky snail (8)          15/1"
 
 [node name="betSquare8" type="LineEdit" parent="dog8"]
 layout_mode = 1

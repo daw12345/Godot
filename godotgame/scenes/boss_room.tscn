@@ -1,6 +1,6 @@
 [gd_scene load_steps=103 format=3 uid="uid://d4ynuqtttcu4"]
 
-[ext_resource type="Script" path="res://boss_room.gd" id="1_77u4j"]
+[ext_resource type="Script" path="res://scripts/boss_room.gd" id="1_77u4j"]
 [ext_resource type="Texture2D" uid="uid://ds8nm5l5wgocy" path="res://assets/bossroom(1).png" id="1_npa43"]
 [ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="2_kb3lv"]
 [ext_resource type="Script" path="res://scripts/boss.gd" id="2_rmbv6"]
@@ -555,23 +555,31 @@ animation = &"talk1"
 [node name="bossDialog" type="Panel" parent="boss"]
 process_mode = 3
 top_level = true
-offset_left = 56.0
-offset_top = 288.0
-offset_right = 147.0
-offset_bottom = 321.0
+anchors_preset = -1
+anchor_left = -0.00347222
+anchor_right = -0.000868056
+offset_left = 124.0
+offset_top = 303.0
+offset_right = 215.0
+offset_bottom = 336.0
 scale = Vector2(1.19297, 1.73969)
 theme_override_styles/panel = SubResource("StyleBoxLine_ntmal")
 script = ExtResource("19_3ksxp")
 metadata/_edit_use_anchors_ = true
 
 [node name="background2" type="Sprite2D" parent="boss/bossDialog"]
-position = Vector2(156.752, 64.0919)
-scale = Vector2(0.0989128, 0.0557571)
+position = Vector2(107.295, 55.326)
+scale = Vector2(0.0709713, 0.0813363)
 texture = ExtResource("20_dm3w8")
 
 [node name="sharlita" type="Label" parent="boss/bossDialog"]
 process_mode = 3
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0441205
+anchor_top = -0.631335
+anchor_right = 0.0441206
+anchor_bottom = 1.61109
 offset_left = 21.0
 offset_top = 49.0
 offset_right = 283.0
@@ -579,13 +587,18 @@ offset_bottom = 67.0
 theme_override_fonts/font = ExtResource("21_qcr8v")
 theme_override_font_sizes/font_size = 5
 theme_override_styles/normal = SubResource("StyleBoxLine_wm2dt")
-text = "hey kid, you’re lucky i’m feeling generous today
-take 20 grand, but don’t play me"
+text = "hey kid, you’re lucky i’m feeling 
+generous today. 
+you owe me 20 grand, 
+don’t play me"
 metadata/_edit_use_anchors_ = true
 
 [node name="next" type="Button" parent="boss/bossDialog"]
 process_mode = 3
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.847159
+anchor_right = -0.847159
 offset_left = 244.767
 offset_top = 70.7023
 offset_right = 277.767
@@ -683,6 +696,7 @@ scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_agyph")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(524, 208)
