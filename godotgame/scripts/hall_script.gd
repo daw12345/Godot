@@ -23,9 +23,11 @@ func _process(delta: float) -> void:
 
 	if GameData.drink_overdose == 20:
 		get_tree().change_scene_to_file("res://scenes/gameOver2.tscn")
+		GameData.gameOver_On = false
 		
 	if GameData.her_love == 1000:
 		get_tree().change_scene_to_file("res://scenes/win.tscn")
+		GameData.gameOver_On = false
 
 
 func _on_door_body_entered(body: Node2D) -> void:

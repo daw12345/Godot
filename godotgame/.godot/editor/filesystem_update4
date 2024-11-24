@@ -7,4 +7,5 @@ res://scenes/gameOver.tscn
 res://scenes/gameOver2.tscn
 res://scenes/boss_room.tscn
 res://scenes/Dog1.tscn
-res://scripts/raceManager.gd
+res://scripts/result_screen.gd
+res://scripts/hall_script.gd

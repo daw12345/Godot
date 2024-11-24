@@ -113,10 +113,16 @@ func _on_continue_pressed() -> void:
 	if GameData.gameOver_On and GameData.balance <=0:
 		get_tree().change_scene_to_file("res://scenes/gameOver.tscn")
 		print("GameOver")
+		GameData.gameOver_On = false
+		
+	else:
+		print("Continuar presionado. Cambiando de escena...")
+		get_tree().change_scene_to_file("res://scenes/Hall.tscn")	
+		
 		
 	if GameData.balance >=20000:
 		get_tree().change_scene_to_file("res://scenes/win.tscn")
 		print("Winner")
+		GameData.gameOver_On = false
 
-	print("Continuar presionado. Cambiando de escena...")
-	get_tree().change_scene_to_file("res://scenes/Hall.tscn")
+	
