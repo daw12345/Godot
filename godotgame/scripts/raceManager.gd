@@ -2,6 +2,9 @@ extends Node
 
 @onready var fondo1 : AnimatedSprite2D = $"Race2(1)"
 @onready var fondo2 : AnimatedSprite2D = $"Race3(1)"
+@onready var go : Sprite2D = $Gogoogo
+@onready var text = $RichTextLabel
+
 
 var dogs = []  # Lista de perros en la carrera
 var race_distance = 9000  # Distancia de la carrera (en píxeles)
@@ -13,7 +16,8 @@ var race_ended = false  # Bandera para asegurarse de que la carrera termine solo
 func _ready():
 	# Obtener todos los perros en la escena (perros deben estar en el grupo "dogs")
 	dogs = get_tree().get_nodes_in_group("dogs")
-	
+	text.visible = true
+	go.visible = false
 	
 	fondo1.play("default")
 	fondo2.play("default")
@@ -36,7 +40,11 @@ func _ready():
 func _on_race_start():
 	print("¡La carrera ha comenzado!")
 	start_race()
-
+	go.visible=true
+	text.visible = false
+	await get_tree().create_timer(1.5).timeout
+	go.visible=false
+	
 func start_race():
 	# Reiniciar contador de perros y resultados
 	dogs_finished = 0

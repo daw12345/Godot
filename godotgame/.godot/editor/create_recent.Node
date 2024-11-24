@@ -1,6 +1,7 @@
-Panel
 Label
+RichTextLabel
 AnimatedSprite2D
+Panel
 CollisionShape2D
 StaticBody2D
 Area2D
