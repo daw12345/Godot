@@ -1,18 +1,20 @@
-[gd_scene load_steps=143 format=3 uid="uid://by5g2kx2hdwyf"]
+[gd_scene load_steps=141 format=3 uid="uid://by5g2kx2hdwyf"]
 
 [ext_resource type="Script" path="res://scripts/raceManager.gd" id="1_oct4k"]
 [ext_resource type="PackedScene" uid="uid://du0een4ihhkf" path="res://scenes/Dog1.tscn" id="1_y456d"]
 [ext_resource type="Texture2D" uid="uid://ree3tpbj7ji6" path="res://assets/idle(1).png" id="2_8jfna"]
+[ext_resource type="Texture2D" uid="uid://cbeqfestu0lsa" path="res://assets/race10.png" id="3_0rbxt"]
 [ext_resource type="Texture2D" uid="uid://dymvf4njb1144" path="res://assets/lazy(4).png" id="3_3r54t"]
 [ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="3_kq1k3"]
-[ext_resource type="Texture2D" uid="uid://6y1tuxcifhpi" path="res://assets/race1(1).png" id="4_3o3lq"]
+[ext_resource type="Texture2D" uid="uid://pghsdcyoesrt" path="res://assets/race0.png" id="4_7xmgn"]
 [ext_resource type="Texture2D" uid="uid://dcb6mhy31v8w6" path="res://assets/run dog(2)(2).png" id="4_l5eqw"]
-[ext_resource type="Texture2D" uid="uid://fkic10megm4f" path="res://assets/race2(1).png" id="5_4xdux"]
+[ext_resource type="Texture2D" uid="uid://borwp31at5ihp" path="res://assets/race1.png" id="5_cmj28"]
 [ext_resource type="Script" path="res://scripts/DogClass.gd" id="5_fbxqh"]
+[ext_resource type="Texture2D" uid="uid://catid351d0hyn" path="res://assets/race30.png" id="6_0eg47"]
 [ext_resource type="Texture2D" uid="uid://csurnkeyq1xoy" path="res://assets/sandbag.png" id="6_4woh0"]
-[ext_resource type="Texture2D" uid="uid://byypi23offwuo" path="res://assets/race3(1).png" id="6_dofaq"]
 [ext_resource type="Script" path="res://scripts/raceCam.gd" id="6_jss50"]
 [ext_resource type="Resource" uid="uid://ddorq3kxk0k7h" path="res://DogParams/Dog1Params.tres" id="7_an78a"]
+[ext_resource type="Texture2D" uid="uid://cpfw53015ph22" path="res://assets/race31.png" id="7_sw00y"]
 [ext_resource type="PackedScene" uid="uid://dojtcici7i3wp" path="res://scenes/Dog2.tscn" id="8_cbpda"]
 [ext_resource type="Texture2D" uid="uid://r1dvshok2765" path="res://assets/idle (3).png" id="9_iamtx"]
 [ext_resource type="Texture2D" uid="uid://dudaekm5aqcyg" path="res://assets/lazy (3).png" id="10_2n7ev"]
@@ -53,45 +55,30 @@
 [ext_resource type="Texture2D" uid="uid://dtaeey3p2bk84" path="res://assets/barrel.png" id="43_hlkku"]
 [ext_resource type="Texture2D" uid="uid://cpk4a0dme5ngi" path="res://assets/fence.png" id="44_bplnx"]
 [ext_resource type="Texture2D" uid="uid://bsv2osntr88yo" path="res://assets/number_7.png" id="46_x8p1p"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ady45"]
-atlas = ExtResource("5_4xdux")
-region = Rect2(0, 0, 13440, 4190)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4xdvi"]
-atlas = ExtResource("5_4xdux")
-region = Rect2(13440, 0, 13440, 4190)
+[ext_resource type="Texture2D" uid="uid://dwmcc3wh77ftq" path="res://assets/race32.png" id="50_ognsc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w48hj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ady45")
+"texture": ExtResource("4_7xmgn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4xdvi")
+"texture": ExtResource("5_cmj28")
 }],
 "loop": true,
 "name": &"default",
 "speed": 1.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4uqxc"]
-atlas = ExtResource("6_dofaq")
-region = Rect2(0, 0, 6810, 3610)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d4603"]
-atlas = ExtResource("6_dofaq")
-region = Rect2(6810, 0, 6810, 3610)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_s0kw3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4uqxc")
+"texture": ExtResource("6_0eg47")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d4603")
+"texture": ExtResource("7_sw00y")
 }],
 "loop": true,
 "name": &"default",
@@ -714,15 +701,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m8l70"]
-atlas = ExtResource("6_dofaq")
-region = Rect2(13620, 0, 6810, 3610)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_teelq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m8l70")
+"texture": ExtResource("50_ognsc")
 }],
 "loop": true,
 "name": &"default",
@@ -769,18 +752,17 @@ texture = ExtResource("3_kq1k3")
 
 [node name="Race1(1)" type="Sprite2D" parent="."]
 position = Vector2(1431, -182)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_3o3lq")
+texture = ExtResource("3_0rbxt")
 
 [node name="Race2(1)" type="AnimatedSprite2D" parent="."]
 position = Vector2(4904, -255)
-scale = Vector2(0.2, 0.294093)
+scale = Vector2(1, 1.47)
 sprite_frames = SubResource("SpriteFrames_w48hj")
 frame_progress = 0.675895
 
 [node name="Race3(1)" type="AnimatedSprite2D" parent="."]
 position = Vector2(7899, -274)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(2.07, 2.07)
 sprite_frames = SubResource("SpriteFrames_s0kw3")
 frame_progress = 0.388945
 
@@ -954,7 +936,7 @@ texture = ExtResource("46_x8p1p")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 2
 position = Vector2(7900, -273)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(2.07, 2.07)
 sprite_frames = SubResource("SpriteFrames_teelq")
 
 [node name="GenericBg3" type="Sprite2D" parent="."]
