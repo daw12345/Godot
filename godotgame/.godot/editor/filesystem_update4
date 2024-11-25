@@ -2,7 +2,6 @@ res://scenes/Hall.tscn
 res://scenes/Contract.tscn
 res://assets/betMenu.tscn
 res://scenes/win.tscn
-res://scenes/gameOver.tscn
 res://scenes/gameOver2.tscn
 res://scenes/boss_room.tscn
 res://scenes/Dog1.tscn
@@ -12,3 +11,4 @@ res://scenes/Transition.tscn
 res://scenes/resultScreen.tscn
 res://scenes/Loading.tscn
 res://scenes/race.tscn
+res://scenes/gameOver.tscn
