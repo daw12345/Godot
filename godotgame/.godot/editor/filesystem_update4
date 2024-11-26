@@ -8,8 +8,5 @@ res://scenes/gameOver2.tscn
 res://scenes/gameOver.tscn
 res://scenes/win.tscn
 res://scenes/Transition2.tscn
-res://scripts/boss.gd
-res://scripts/result_screen.gd
-res://scripts/GameData.gd
 res://scenes/Instructions.tscn
 res://scenes/TitleScreen.tscn
