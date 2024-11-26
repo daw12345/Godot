@@ -1,0 +1,15 @@
+res://scenes/boss_room.tscn
+res://scenes/Hall.tscn
+res://scenes/Contract.tscn
+res://scenes/race.tscn
+res://scenes/resultScreen.tscn
+res://scenes/betMenu.tscn
+res://scenes/gameOver2.tscn
+res://scenes/gameOver.tscn
+res://scenes/win.tscn
+res://scenes/Transition2.tscn
+res://scripts/boss.gd
+res://scripts/result_screen.gd
+res://scripts/GameData.gd
+res://scenes/Instructions.tscn
+res://scenes/TitleScreen.tscn

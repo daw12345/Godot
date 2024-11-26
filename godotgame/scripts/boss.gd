@@ -20,7 +20,7 @@ func _ready() -> void:
 	if GameData.boss_hide:
 		visible = true
 	else:
-		visible= false
+		queue_free()
 
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.

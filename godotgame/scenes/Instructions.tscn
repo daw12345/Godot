@@ -70,5 +70,6 @@ text = "back"
 [node name="Skogen14" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-698, 180)
 stream = ExtResource("4_jqs7b")
+parameters/looping = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

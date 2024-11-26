@@ -746,8 +746,8 @@ animations = [{
 script = ExtResource("1_oct4k")
 
 [node name="GenericBg2" type="Sprite2D" parent="."]
-position = Vector2(4391, -618)
-scale = Vector2(36.8219, 10.6625)
+position = Vector2(2992.25, -618)
+scale = Vector2(45.5641, 10.6625)
 texture = ExtResource("3_kq1k3")
 
 [node name="Race1(1)" type="Sprite2D" parent="."]

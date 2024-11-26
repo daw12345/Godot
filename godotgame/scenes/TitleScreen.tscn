@@ -150,6 +150,7 @@ text = "instructions"
 [node name="Skogen14" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-910, 455)
 stream = ExtResource("16_jrp8d")
+parameters/looping = true
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Instructions" to="." method="_on_instructions_pressed"]
