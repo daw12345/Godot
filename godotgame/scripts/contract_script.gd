@@ -7,8 +7,11 @@ var has_painted = false  # Variable para rastrear si algo ha sido pintado
 
 @onready var layer = $signherebabe
 @onready var done_button = $Done
+@onready var music : AudioStreamPlayer2D = $"12-AttackTheBarbarian"
+
 
 func _ready() -> void:
+	music.play(GameData.music_pos)
 	# Crear la imagen con las dimensiones especificadas
 	var img = Image.create(width, height, false, Image.FORMAT_RGBA8)
 	img.fill(Color(1, 1, 1, 0))  # Blanco transparente (alfa = 0)

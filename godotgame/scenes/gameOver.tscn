@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ccqxecech1tg4"]
+[gd_scene load_steps=36 format=3 uid="uid://ccqxecech1tg4"]
 
 [ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="1_0fsc8"]
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_auxw2"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://j3niuwwymm7t" path="res://assets/diags.png" id="16_mpcle"]
 [ext_resource type="FontFile" uid="uid://4lhe6j1fp84n" path="res://assets/8-bit-hud.ttf" id="17_s01gm"]
 [ext_resource type="Texture2D" uid="uid://bqm6n1r5e72in" path="res://assets/gameover.png" id="18_ijfjt"]
+[ext_resource type="AudioStream" uid="uid://mp6r3dcwp7jk" path="res://assets/14 - Game Over.mp3" id="19_2jkuv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o1f4f"]
 atlas = ExtResource("3_d6vrr")
@@ -250,5 +251,9 @@ text = "return to menu"
 position = Vector2(19, -109)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("18_ijfjt")
+
+[node name="14-GameOver" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-749, 542)
+stream = ExtResource("19_2jkuv")
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

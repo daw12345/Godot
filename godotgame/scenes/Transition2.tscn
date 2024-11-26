@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dijxgffrxgqpy"]
+
+[ext_resource type="Script" path="res://scenes/transition_2.gd" id="1_3x3e4"]
+[ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="2_lupk7"]
+
+[node name="Transition2" type="Node2D"]
+script = ExtResource("1_3x3e4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="GenericBg" type="Sprite2D" parent="."]
+position = Vector2(151, 68)
+scale = Vector2(7.15938, 5.20313)
+texture = ExtResource("2_lupk7")

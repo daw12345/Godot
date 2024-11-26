@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c7tf4cshg8otu"]
+[gd_scene load_steps=37 format=3 uid="uid://c7tf4cshg8otu"]
 
 [ext_resource type="Script" path="res://scripts/result_screen.gd" id="1_thxob"]
 [ext_resource type="Texture2D" uid="uid://c0fx04pxy4tlh" path="res://assets/backgroundResults.png" id="2_fbk5o"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b8i04d6rsd8id" path="res://assets/idle (2) (3).png" id="9_1e3ef"]
 [ext_resource type="Texture2D" uid="uid://4wth27q0xbpe" path="res://assets/idle (2) (3)(1).png" id="10_2lkr2"]
 [ext_resource type="Texture2D" uid="uid://bw235m4l37fmp" path="res://assets/idle (2) (2).png" id="11_2jt3q"]
+[ext_resource type="AudioStream" uid="uid://fgxjqyq4piup" path="res://assets/11 - Level Clear.mp3" id="12_awplk"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_grpa3"]
 color = Color(0, 0, 0, 0)
@@ -348,5 +349,9 @@ animation = &"8"
 
 [node name="resultScreenCam" type="Camera2D" parent="."]
 position = Vector2(567, 315)
+
+[node name="11-LevelClear" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-184, 376)
+stream = ExtResource("12_awplk")
 
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]

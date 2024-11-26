@@ -5,8 +5,12 @@ extends Node2D
 @onready var emoji : AnimatedSprite2D = $"<3"
 @onready var end : Button = $end
 
+@onready var music : AudioStreamPlayer2D = $"16-GoodEnding"
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	music.play()
 	prota.visible = true
 	lady.visible = true
 	title.visible = false
@@ -25,4 +29,5 @@ func _process(delta: float) -> void:
 
 
 func _on_end_pressed() -> void:
+	GameData.music_pos = 0.0
 	get_tree().change_scene_to_file("res://scenes/TitleScreen.tscn")

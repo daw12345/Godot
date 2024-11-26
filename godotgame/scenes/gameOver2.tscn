@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://qofvaml2e146"]
+[gd_scene load_steps=21 format=3 uid="uid://qofvaml2e146"]
 
 [ext_resource type="Script" path="res://scripts/game_over_2_script.gd" id="1_hj28b"]
 [ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="2_jb5fl"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bqm6n1r5e72in" path="res://assets/gameover.png" id="4_lmxpc"]
 [ext_resource type="Texture2D" uid="uid://bpuprl35cxoq6" path="res://assets/sheetOfProta.png" id="5_t3xo2"]
 [ext_resource type="Texture2D" uid="uid://j3niuwwymm7t" path="res://assets/diags.png" id="6_3ud8e"]
+[ext_resource type="AudioStream" uid="uid://mp6r3dcwp7jk" path="res://assets/14 - Game Over.mp3" id="7_ub6gi"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_df1mi"]
 color = Color(0, 0, 0, 0)
@@ -139,5 +140,9 @@ text = "Oh no, I think I've had
  too much to drink
 "
 metadata/_edit_use_anchors_ = true
+
+[node name="14-GameOver" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1068, 155)
+stream = ExtResource("7_ub6gi")
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://caiuf1xf4xwvh"
+path="res://.godot/imported/16 - Good Ending.mp3-f3b940c2d32f1e6910e895010f7d6f77.mp3str"
+
+[deps]
+
+source_file="res://assets/16 - Good Ending.mp3"
+dest_files=["res://.godot/imported/16 - Good Ending.mp3-f3b940c2d32f1e6910e895010f7d6f77.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

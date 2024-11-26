@@ -1,6 +1,9 @@
+AudioStreamPlayer2D
+Camera2D
+Node
+AudioStreamPlayer
 Label
 AnimatedSprite2D
-Camera2D
 Button
 RichTextLabel
 Panel
@@ -9,6 +12,3 @@ StaticBody2D
 Area2D
 Sprite2D
 Node2D
-Control
-TextureRect
-TextEdit

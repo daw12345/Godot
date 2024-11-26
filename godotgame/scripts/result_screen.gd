@@ -15,7 +15,12 @@ extends Node2D
 ]  # Lista de etiquetas para las posiciones de los perros
 @onready var winner_sprite = $Winner  # AnimatedSprite2D donde se mostrará el perro ganador
 
+@onready var music : AudioStreamPlayer2D = $"11-LevelClear"
+
+
 func _ready():
+	
+	music.play()
 	# Verificar si hay resultados de carrera disponibles
 	if GameData.race_results.is_empty():
 		print("Error: No hay resultados de carrera disponibles.")

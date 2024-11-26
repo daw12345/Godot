@@ -1,5 +1,8 @@
 extends Node
 
+
+
+
 # IDs de los perros
 const DOG_IDS = [1, 2, 3, 4, 5, 6, 7, 8]
 
@@ -21,3 +24,7 @@ var race_results : Array = []  # Lista con los resultados de la carrera
 
 # Variable global para la posición del personaje
 var player_position : Vector2 = Vector2(0, 0)  # Coordenadas (X, Y) del personaje
+
+var music_pos : float = 0.0
+
+var boss_music_cont : bool = false

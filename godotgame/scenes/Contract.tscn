@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://65cr7p4hfir5"]
+[gd_scene load_steps=14 format=3 uid="uid://65cr7p4hfir5"]
 
 [ext_resource type="Texture2D" uid="uid://bxarngd8yomjj" path="res://assets/pprs.png" id="1_arbxx"]
 [ext_resource type="Script" path="res://scripts/contract_script.gd" id="1_h4ag4"]
 [ext_resource type="Texture2D" uid="uid://tgyk3wbkd862" path="res://assets/dolars.png" id="1_ixrps"]
 [ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="2_wgmov"]
 [ext_resource type="FontFile" uid="uid://4lhe6j1fp84n" path="res://assets/8-bit-hud.ttf" id="4_j66vp"]
+[ext_resource type="AudioStream" uid="uid://ch8fsnrt6h3y8" path="res://assets/12 - Attack the Barbarian.mp3" id="6_hel5k"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_vm0nu"]
 color = Color(0, 0, 0, 0)
@@ -79,5 +80,9 @@ offset_left = -457.0
 offset_top = -277.0
 offset_right = 154.0
 offset_bottom = 206.0
+
+[node name="12-AttackTheBarbarian" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-256, 431)
+stream = ExtResource("6_hel5k")
 
 [connection signal="pressed" from="Done" to="." method="_on_done_pressed"]

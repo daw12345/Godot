@@ -12,11 +12,14 @@ extends Node2D
 @export var end_position: Vector2 = Vector2(394, -26)  # Punto final del boss
 @export var speed: float = 110  # Velocidad de movimiento del boss
 
+
+@onready var music : AudioStreamPlayer2D = $"14-GameOver"
 # Variable para controlar si el boss ha llegado a su destino
 var arrived: bool = false
 
 # Función _ready() se ejecuta al inicio de la escena
 func _ready() -> void:
+	
 	title.visible = false
 	panel.visible = false
 	end.visible = false
@@ -40,13 +43,16 @@ func _process(delta):
 	boss.position += direction * speed * delta  # Movemos al boss a lo largo de la dirección
 	boss.play("walk")
 	prota.play("oh")
+	
 	# Si el boss ha llegado a la posición final
 	if boss.position.distance_to(end_position) < 1:  # Tolerancia de 1px
 		boss.position = end_position  # Aseguramos que llegue exactamente al final
 		arrived = true  # Marcamos que el boss ha llegado al destino
 		boss.play("talk")
+		music.play()
 		panel.visible=true
 		await get_tree().create_timer(2.0).timeout  # Espera 2 segundos
+		
 		panel.visible = false
 		boss.play("pay me")
 		await get_tree().create_timer(0.5).timeout  
@@ -58,4 +64,5 @@ func _process(delta):
 		end.visible = true
 
 func _on_back_pressed() -> void:
+	GameData.music_pos = 0.0
 	get_tree().change_scene_to_file("res://scenes/TitleScreen.tscn")

@@ -4,6 +4,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	bg.visible = false
 	lb.visible = false
 	bg.play("default")

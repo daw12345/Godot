@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=3 uid="uid://drms2uu8f01u8"]
+[gd_scene load_steps=142 format=3 uid="uid://drms2uu8f01u8"]
 
 [ext_resource type="Texture2D" uid="uid://bjk8qn8egtibx" path="res://assets/bh3.png" id="1_agol5"]
 [ext_resource type="Texture2D" uid="uid://csn1ca1ou6k4a" path="res://assets/shark.png" id="1_epf0i"]
@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://wy71vdbmmvpd" path="res://assets/face.png" id="12_k8b1q"]
 [ext_resource type="Texture2D" uid="uid://b8rdplb488rss" path="res://assets/in in IN!.png" id="12_txxtr"]
 [ext_resource type="Texture2D" uid="uid://dl18b1iuw5h5e" path="res://assets/misc.png" id="19_hyai7"]
+[ext_resource type="AudioStream" uid="uid://ca4ovncy3r3v5" path="res://assets/03 - Fighting in the Street.mp3" id="24_0wefu"]
+[ext_resource type="AudioStream" uid="uid://dexr4e1bvjllr" path="res://assets/SE-26.mp3" id="24_st4r4"]
 [ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="37_1ab6y"]
 [ext_resource type="Script" path="res://scripts/punky_script.gd" id="40_npjoh"]
 [ext_resource type="Texture2D" uid="uid://dvwhnvdbphy6g" path="res://assets/punky.png" id="41_8qmyr"]
@@ -1178,6 +1180,14 @@ position = Vector2(-256, 104)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_pq6c1")
 frame_progress = 0.321721
+
+[node name="02-PlayerSelect" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(384, 272)
+stream = ExtResource("24_0wefu")
+parameters/looping = true
+
+[node name="Se-26" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_st4r4")
 
 [connection signal="body_entered" from="Lady/AreaLady" to="Lady" method="_on_area_lady_body_entered"]
 [connection signal="body_exited" from="Lady/AreaLady" to="Lady" method="_on_area_lady_body_exited"]

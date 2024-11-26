@@ -990,7 +990,6 @@ scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_7reto")
 
 [node name="RichTextLabel" type="Label" parent="."]
-visible = false
 z_index = 2
 offset_left = -1295.0
 offset_top = -578.0

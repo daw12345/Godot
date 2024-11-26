@@ -2,8 +2,9 @@ extends Node2D
 
 # Referencias a los nodos
 @onready var popup_sprite: AnimatedSprite2D = $PopupSprite  # Nodo del popup
-
-
+@onready var music : AudioStreamPlayer2D = $"../02-PlayerSelect"
+@onready var sound : AudioStreamPlayer2D = $"../Se-26"
+ 
 # Bandera para verificar si el jugador puede interactuar
 var can_interact: bool = false
 
@@ -18,7 +19,7 @@ func _on_screen_body_entered(body: Node2D) -> void:
 		popup_sprite.play("default")
 		can_interact = true
 		popup_sprite.visible = true  # Mostrar el popup
-		
+		sound.play()
 		print("El personaje ha entrado en el área de interacción")
 
 # Detectar si el personaje sale del área
@@ -34,3 +35,4 @@ func _process(delta: float) -> void:
 	if can_interact and Input.is_action_just_pressed("action_button"):
 		print("Interacción realizada. Cambiando de escena...")
 		get_tree().change_scene_to_file("res://scenes/betMenu.tscn")
+		GameData.music_pos = music.get_playback_position()

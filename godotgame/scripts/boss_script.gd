@@ -10,7 +10,19 @@ var dialog_texts: Array = []  # Lista de textos del diálogo
 @onready var dialog_box: Label = $sharlita
 @onready var next: Button = $next
 
+var music_player : AudioStreamPlayer2D = null
+
+
+
 func _ready() -> void:
+	
+	music_player = AudioStreamPlayer2D.new()
+	music_player.stream = preload("res://assets/12 - Attack the Barbarian.mp3")
+	add_child(music_player)  
+	music_player.volume_db = 1
+	
+	
+	
 	# Establecemos los textos del diálogo
 	dialog_texts = ["hey kid, you’re lucky i’m feeling 
 	generous today. 
@@ -32,8 +44,10 @@ life’s too short"]
 	# Aseguramos que el botón 'Next' esté habilitado
 	next.disabled = false
 	next.connect("pressed", Callable(self, "_on_next_pressed"))
-
+	
+	
 func _start_dialog() -> void:
+	
 	# Activa el diálogo y pausa el juego
 	is_dialog_active = true
 	visible = true  # Muestra el cuadro de diálogo
@@ -59,4 +73,12 @@ func _on_next_pressed() -> void:
 		print("Se acabó el diálogo. Redirigiendo a otra escena...")
 		_end_dialog()  # Cierra el diálogo
 		get_tree().paused = false
+		GameData.music_pos = music_player.get_playback_position()
 		get_tree().change_scene_to_file("res://scenes/Contract.tscn") 
+		
+func _process(delta: float) -> void:
+	
+	if GameData.boss_music_cont:
+		print("sonando..")
+		music_player.play()
+		GameData.boss_music_cont = false

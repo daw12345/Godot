@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://etw4tgr64h4l"]
+[gd_scene load_steps=27 format=3 uid="uid://etw4tgr64h4l"]
 
 [ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="1_3o8o6"]
 [ext_resource type="Script" path="res://scripts/win_script.gd" id="1_ap8jg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bpuprl35cxoq6" path="res://assets/sheetOfProta.png" id="4_qm0y5"]
 [ext_resource type="Texture2D" uid="uid://dpcxt4rnc438d" path="res://assets/emoji.png" id="5_uctvk"]
 [ext_resource type="FontFile" uid="uid://4lhe6j1fp84n" path="res://assets/8-bit-hud.ttf" id="6_1ny5n"]
+[ext_resource type="AudioStream" uid="uid://caiuf1xf4xwvh" path="res://assets/16 - Good Ending.mp3" id="8_7qedd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fa7b8"]
 atlas = ExtResource("3_mgpj1")
@@ -163,5 +164,9 @@ theme_override_styles/hover = SubResource("StyleBoxLine_05hnf")
 theme_override_styles/pressed = SubResource("StyleBoxLine_x0ve5")
 theme_override_styles/normal = SubResource("StyleBoxLine_w5sl1")
 text = "return to menu"
+
+[node name="16-GoodEnding" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-134, 455)
+stream = ExtResource("8_7qedd")
 
 [connection signal="pressed" from="end" to="." method="_on_end_pressed"]

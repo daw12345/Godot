@@ -6,6 +6,11 @@ extends Node
 @onready var text = $RichTextLabel
 
 
+
+var music_player : AudioStreamPlayer = null
+var sound : AudioStreamPlayer2D = null
+
+
 var dogs = []  # Lista de perros en la carrera
 var race_distance = 9000  # Distancia de la carrera (en píxeles)
 var race_timer : Timer  # Temporizador para iniciar la carrera
@@ -14,10 +19,51 @@ var race_results = []  # Lista para almacenar los perros que han llegado a la me
 var race_ended = false  # Bandera para asegurarse de que la carrera termine solo una vez
 
 func _ready():
+		# Crear una lista con las 5 URLs de los archivos de música
+	var music_urls = [
+		"res://assets/Megaman-2_-Dr-Wily-Theme-8-bit-theme.mp3",
+		"res://assets/242050_Guile_s_Theme_8_Bit.mp3",
+		"res://assets/02 Bloody Tears.mp3"
+	]
+
+	# Elegir una URL aleatoriamente de la lista
+	var random_music_url = music_urls[randi() % music_urls.size()]
+
+	# Crear un AudioStreamPlayer2D
+	var music_player = AudioStreamPlayer.new()
+
+	# Cargar la música aleatoria seleccionada usando load
+	var stream = load(random_music_url)
+
+	# Verificar que el recurso se haya cargado correctamente
+	if stream:
+		music_player.stream = stream
+		add_child(music_player)
+
+		# Ajustar el volumen
+		music_player.set_volume_db(0.0)
+
+		# Reproducir la música
+		music_player.play()
+		
+		
+		
+	else:
+		print("Error al cargar la música desde: ", random_music_url)
+
+	sound = AudioStreamPlayer2D.new()
+	sound.stream = preload("res://assets/SE-27.mp3")
+	add_child(sound)  
+	sound.set_volume_db(15.0)
+	
+	
+	
+	
 	# Obtener todos los perros en la escena (perros deben estar en el grupo "dogs")
 	dogs = get_tree().get_nodes_in_group("dogs")
 	text.visible = true
 	go.visible = false
+	
 	
 	fondo1.play("default")
 	fondo2.play("default")
@@ -30,7 +76,7 @@ func _ready():
 	# Crear y configurar el temporizador
 	race_timer = Timer.new()
 	add_child(race_timer)
-	race_timer.wait_time = 4.0  # Esperar 4 segundos antes de iniciar la carrera
+	race_timer.wait_time = 8.0  # Esperar 4 segundos antes de iniciar la carrera
 	race_timer.one_shot = true  # No repetir
 	race_timer.connect("timeout", Callable(self, "_on_race_start"))
 	
@@ -38,6 +84,7 @@ func _ready():
 	race_timer.start()  # Inicia el temporizador
 
 func _on_race_start():
+	sound.play()
 	print("¡La carrera ha comenzado!")
 	start_race()
 	go.visible=true
@@ -53,6 +100,7 @@ func start_race():
 		dog.start_race()  # Inicia la carrera para cada perro
 
 func _process(delta):
+	
 	# Verificar si algún perro ha cruzado la meta
 	for dog in dogs:
 		if dog.position.x >= race_distance and not dog.race_ended:

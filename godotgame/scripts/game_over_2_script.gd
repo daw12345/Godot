@@ -6,8 +6,11 @@ extends Node2D
 @onready var panel: Sprite2D = $Diags
 @onready var end: Button = $back
 
+@onready var music : AudioStreamPlayer2D = $"14-GameOver"
+
 # Función _ready() se ejecuta al inicio de la escena
 func _ready() -> void:
+	
 	title.visible = false
 	panel.visible = false
 	end.visible = false
@@ -23,7 +26,7 @@ func _start_sequence() -> void:
 	# Secuencia de animaciones con temporizadores
 	await get_tree().create_timer(2.0).timeout  # Espera 2 segundos
 	prota.play("oh")
-	
+	music.play()
 	await get_tree().create_timer(1.0).timeout  # Espera 1 segundo
 	panel.visible = true
 
@@ -37,4 +40,5 @@ func _start_sequence() -> void:
 
 # Función para manejar el evento cuando se presiona el botón "back"
 func _on_back_pressed() -> void:
+	GameData.music_pos = 0.0
 	get_tree().change_scene_to_file("res://scenes/TitleScreen.tscn")

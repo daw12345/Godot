@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://d4ynuqtttcu4"]
+[gd_scene load_steps=106 format=3 uid="uid://d4ynuqtttcu4"]
 
 [ext_resource type="Script" path="res://scripts/boss_room.gd" id="1_77u4j"]
 [ext_resource type="Texture2D" uid="uid://ds8nm5l5wgocy" path="res://assets/bossroom(1).png" id="1_npa43"]
@@ -30,6 +30,9 @@
 [ext_resource type="Texture2D" uid="uid://bm3ilvehoppgi" path="res://assets/gogogooo.png" id="25_i5ikw"]
 [ext_resource type="Texture2D" uid="uid://ckrq5wq3a8mk1" path="res://assets/statua(1).png" id="28_e683d"]
 [ext_resource type="Texture2D" uid="uid://dl18b1iuw5h5e" path="res://assets/misc.png" id="29_hn53c"]
+[ext_resource type="AudioStream" uid="uid://73x57av03c4a" path="res://assets/01 Battle of the Holy [Stage 1 BGM].mp3" id="31_nwqda"]
+[ext_resource type="AudioStream" uid="uid://ch8fsnrt6h3y8" path="res://assets/12 - Attack the Barbarian.mp3" id="32_ukwaw"]
+[ext_resource type="AudioStream" uid="uid://dexr4e1bvjllr" path="res://assets/SE-26.mp3" id="33_1c057"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_14bie"]
 atlas = ExtResource("29_hn53c")
@@ -771,6 +774,18 @@ shape = SubResource("CircleShape2D_jw51o")
 position = Vector2(70, 409)
 scale = Vector2(-0.131, 0.113)
 texture = ExtResource("28_e683d")
+
+[node name="01BattleOfTheHoly[stage1Bgm]" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("31_nwqda")
+parameters/looping = true
+
+[node name="12-AttackTheBarbarian" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+position = Vector2(213, 667)
+stream = ExtResource("32_ukwaw")
+
+[node name="Se-15" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("33_1c057")
 
 [connection signal="pressed" from="boss/bossDialog/next" to="boss/bossDialog" method="_on_next_pressed"]
 [connection signal="body_entered" from="boss/Area2D" to="boss" method="_on_area_2d_body_entered"]

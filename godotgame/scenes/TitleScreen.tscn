@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bdjtar4kuohbp"]
+[gd_scene load_steps=30 format=3 uid="uid://bdjtar4kuohbp"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_iu3wq"]
 [ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="1_ydfuh"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cbnc4slyqg5o8" path="res://assets/title10.png" id="12_hfq5a"]
 [ext_resource type="Texture2D" uid="uid://b2vbvpq8qrik4" path="res://assets/title11.png" id="13_38nyk"]
 [ext_resource type="FontFile" uid="uid://4lhe6j1fp84n" path="res://assets/8-bit-hud.ttf" id="14_yyw7m"]
+[ext_resource type="AudioStream" uid="uid://dy3bs7xdlg4fb" path="res://assets/skogen14.mp3" id="16_jrp8d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3pr4y"]
 animations = [{
@@ -57,7 +58,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 7.0
+"speed": 9.0
 }]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_3vx2o"]
@@ -145,6 +146,10 @@ theme_override_styles/hover = SubResource("StyleBoxLine_h3mwy")
 theme_override_styles/pressed = SubResource("StyleBoxLine_uu3xk")
 theme_override_styles/normal = SubResource("StyleBoxLine_rnlon")
 text = "instructions"
+
+[node name="Skogen14" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-910, 455)
+stream = ExtResource("16_jrp8d")
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Instructions" to="." method="_on_instructions_pressed"]

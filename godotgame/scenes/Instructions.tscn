@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b12b802r0xq1h"]
+[gd_scene load_steps=11 format=3 uid="uid://b12b802r0xq1h"]
 
 [ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="1_ogfg5"]
 [ext_resource type="Script" path="res://scripts/instructions.gd" id="1_r5apu"]
 [ext_resource type="FontFile" uid="uid://4lhe6j1fp84n" path="res://assets/8-bit-hud.ttf" id="2_54rwb"]
+[ext_resource type="AudioStream" uid="uid://dy3bs7xdlg4fb" path="res://assets/skogen14.mp3" id="4_jqs7b"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_xodoa"]
 color = Color(0, 0, 0, 0)
@@ -65,5 +66,9 @@ theme_override_styles/hover = SubResource("StyleBoxLine_ngs15")
 theme_override_styles/pressed = SubResource("StyleBoxLine_wg3fn")
 theme_override_styles/normal = SubResource("StyleBoxLine_lkk7n")
 text = "back"
+
+[node name="Skogen14" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-698, 180)
+stream = ExtResource("4_jqs7b")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
