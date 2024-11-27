@@ -43,6 +43,7 @@ func _ready():
 	
 	# Inicializar apuestas para cada perro, empezando desde el perro 1 hasta el perro 8
 	for i in range(dog_bet_squares.size()):
+		
 		if dog_bet_squares[i] != null:
 			var dog_id = i + 1  # Los perros tienen ID del 1 al 8, por lo que sumamos 1 al índice
 			bets[dog_id] = 0  # Inicialmente no hay apuestas para ese perro

@@ -145,7 +145,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxLine_16omo")
 theme_override_styles/hover = SubResource("StyleBoxLine_h3mwy")
 theme_override_styles/pressed = SubResource("StyleBoxLine_uu3xk")
 theme_override_styles/normal = SubResource("StyleBoxLine_rnlon")
-text = "instructions"
+text = "options"
 
 [node name="Skogen14" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-910, 455)

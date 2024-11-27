@@ -21,7 +21,7 @@ GameData="*res://scripts/GameData.gd"
 [display]
 
 window/stretch/mode="viewport"
-mouse_cursor/custom_image="res://assets/96302 (1).png"
+mouse_cursor/custom_image="res://assets/cursor.png"
 mouse_cursor/custom_image_hotspot=Vector2(0.2, 0.2)
 
 [input]

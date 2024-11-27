@@ -1,14 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://dijxgffrxgqpy"]
+[gd_scene load_steps=4 format=3 uid="uid://dijxgffrxgqpy"]
 
 [ext_resource type="Script" path="res://scenes/transition_2.gd" id="1_3x3e4"]
 [ext_resource type="Texture2D" uid="uid://dxd05my8vhqoy" path="res://assets/genericBG.png" id="2_lupk7"]
+[ext_resource type="FontFile" uid="uid://4lhe6j1fp84n" path="res://assets/8-bit-hud.ttf" id="3_wxshv"]
 
 [node name="Transition2" type="Node2D"]
 script = ExtResource("1_3x3e4")
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="GenericBg" type="Sprite2D" parent="."]
 position = Vector2(151, 68)
 scale = Vector2(7.15938, 5.20313)
 texture = ExtResource("2_lupk7")
+
+[node name="RichTextLabel" type="Label" parent="."]
+z_index = 2
+offset_left = -361.0
+offset_top = -199.0
+offset_right = 463.0
+offset_bottom = 200.0
+theme_override_colors/font_color = Color(1, 0.396078, 0.329412, 0.537255)
+theme_override_fonts/font = ExtResource("3_wxshv")
+theme_override_font_sizes/font_size = 32
+text = "cam modes:
+1 -> free
+2-> follow leader
+3-> follow dog
+(alternate dog with
+A & D)"
+
+[node name="Camera2D" type="Camera2D" parent="."]

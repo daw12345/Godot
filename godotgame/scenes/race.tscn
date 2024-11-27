@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=3 uid="uid://by5g2kx2hdwyf"]
+[gd_scene load_steps=140 format=3 uid="uid://by5g2kx2hdwyf"]
 
 [ext_resource type="Script" path="res://scripts/raceManager.gd" id="1_oct4k"]
 [ext_resource type="PackedScene" uid="uid://du0een4ihhkf" path="res://scenes/Dog1.tscn" id="1_y456d"]
@@ -48,7 +48,6 @@
 [ext_resource type="Texture2D" uid="uid://nnkxwh1mpayj" path="res://assets/number_4.png" id="31_v8542"]
 [ext_resource type="Resource" uid="uid://ddg1xvmdn8pch" path="res://DogParams/Dog8Params.tres" id="34_3qql0"]
 [ext_resource type="Texture2D" uid="uid://b7gckoke26ma7" path="res://assets/number_5.png" id="36_xh5ak"]
-[ext_resource type="FontFile" uid="uid://4lhe6j1fp84n" path="res://assets/8-bit-hud.ttf" id="41_5gdmm"]
 [ext_resource type="Texture2D" uid="uid://d4aw1balrtjrd" path="res://assets/number_6.png" id="41_dqhqy"]
 [ext_resource type="Texture2D" uid="uid://cicdhudml6h1f" path="res://assets/gogoogo.png" id="41_qq015"]
 [ext_resource type="Texture2D" uid="uid://bblcoympswant" path="res://assets/trash.png" id="42_tcfw2"]
@@ -988,19 +987,3 @@ sprite_frames = SubResource("SpriteFrames_j62tm")
 position = Vector2(4604, 210)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_7reto")
-
-[node name="RichTextLabel" type="Label" parent="."]
-z_index = 2
-offset_left = -1295.0
-offset_top = -578.0
-offset_right = -471.0
-offset_bottom = -179.0
-theme_override_colors/font_color = Color(1, 0.396078, 0.329412, 0.537255)
-theme_override_fonts/font = ExtResource("41_5gdmm")
-theme_override_font_sizes/font_size = 32
-text = "cam modes:
-1 -> free
-2-> follow leader
-3-> follow dog
-(alternate dog with
-A & D)"

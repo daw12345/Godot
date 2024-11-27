@@ -1,3 +1,4 @@
+res://scenes/Instructions.tscn
 res://scenes/boss_room.tscn
 res://scenes/Hall.tscn
 res://scenes/Contract.tscn
@@ -8,5 +9,11 @@ res://scenes/gameOver2.tscn
 res://scenes/gameOver.tscn
 res://scenes/win.tscn
 res://scenes/Transition2.tscn
-res://scenes/Instructions.tscn
 res://scenes/TitleScreen.tscn
+res://scenes/options.gd
+res://scripts/title_screen.gd
+res://scenes/Options.tscn
+res://scripts/instructions.gd
+res://scripts/bet_menu.gd
+res://scenes/transition_2.gd
+res://scripts/raceManager.gd

@@ -31,6 +31,6 @@ func _on_start_pressed() -> void:
 
 
 func _on_instructions_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/Instructions.tscn")	
+	get_tree().change_scene_to_file("res://scenes/Options.tscn")	
 	GameData.music_pos = music.get_playback_position()
 	print(GameData.music_pos)

@@ -3,7 +3,7 @@ extends Node
 @onready var fondo1 : AnimatedSprite2D = $"Race2(1)"
 @onready var fondo2 : AnimatedSprite2D = $"Race3(1)"
 @onready var go : Sprite2D = $Gogoogo
-@onready var text = $RichTextLabel
+
 
 
 
@@ -61,7 +61,7 @@ func _ready():
 	
 	# Obtener todos los perros en la escena (perros deben estar en el grupo "dogs")
 	dogs = get_tree().get_nodes_in_group("dogs")
-	text.visible = true
+	
 	go.visible = false
 	
 	
@@ -88,7 +88,6 @@ func _on_race_start():
 	print("¡La carrera ha comenzado!")
 	start_race()
 	go.visible=true
-	text.visible = false
 	await get_tree().create_timer(1.5).timeout
 	go.visible=false
 	
